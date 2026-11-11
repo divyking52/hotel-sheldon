@@ -1229,8 +1229,8 @@ main#main{background:#fff}
 <a class="skip" href="#main">Skip to content</a>
 <header class="head" id="head">
   <div class="head__in">
-    <a class="brand" href="/home" aria-label="Hotel Sheldon - home"><img src="https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/ddddce9e-285a-4f6e-965c-d9e9c53f6b30/cropped-sheldon-logo-white.webp" alt="Hotel Sheldon" width="512" height="512" class="brand__img" loading="eager" decoding="async"></a>
-    <nav class="nav" id="nav" aria-label="Primary"><a class="nav__link" href="/home" data-route="home">Home</a><a class="nav__link is-active" href="/accommodations" data-route="accommodations" aria-current="page">Accommodations</a><a class="nav__link" href="/attractions" data-route="attractions">Attractions</a><a class="nav__link" href="/blog" data-route="blog">Blog</a><a class="nav__link" href="/gallery" data-route="gallery">Gallery</a><a class="nav__link" href="/contact" data-route="contact">Contact</a><div class="nav__legal"><a href="/privacy-policy">Privacy Policy</a> <a href="/accessibility-statement">Accessibility Statement</a></div></nav>
+    <a class="brand" href="/" aria-label="Hotel Sheldon - home"><img src="https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/ddddce9e-285a-4f6e-965c-d9e9c53f6b30/cropped-sheldon-logo-white.webp" alt="Hotel Sheldon" width="512" height="512" class="brand__img" loading="eager" decoding="async"></a>
+    <nav class="nav" id="nav" aria-label="Primary"><a class="nav__link" href="/" data-route="home">Home</a><a class="nav__link is-active" href="/accommodations" data-route="accommodations" aria-current="page">Accommodations</a><a class="nav__link" href="/attractions" data-route="attractions">Attractions</a><a class="nav__link" href="/blog" data-route="blog">Blog</a><a class="nav__link" href="/gallery" data-route="gallery">Gallery</a><a class="nav__link" href="/contact" data-route="contact">Contact</a><div class="nav__legal"><a href="/privacy-policy">Privacy Policy</a> <a href="/accessibility-statement">Accessibility Statement</a></div></nav>
     <div class="head__actions">
       <a class="btn btn--ghost" href="tel:9549226020">954-922-6020</a>
       <a class="hs-btn head__book" href="/contact"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.490 64 0 85.490 0 112v352c0 26.510 21.490 48 48 48h352c26.510 0 48-21.490 48-48V112c0-26.510-21.490-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.650L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.970.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.970z"/></svg>Book Now</a>
@@ -2515,7 +2515,7 @@ main#main{background:#fff}
 		<div class="elementor-element elementor-element-85f1b17 e-con-full e-flex e-con e-child" data-id="85f1b17" data-element_type="container" data-e-type="container">
 				<div class="elementor-element elementor-element-75d040a elementor-widget elementor-widget-image" data-id="75d040a" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-																<a href="/home">
+																<a href="/">
 							<img width="512" height="512" src="https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white.webp" class="attachment-large size-large wp-image-7368" alt="sheldon-logo-white" srcset="https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white.webp 512w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-300x300.webp 300w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-150x150.webp 150w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-270x270.webp 270w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-192x192.webp 192w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-180x180.webp 180w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-32x32.webp 32w" sizes="(max-width: 512px) 100vw, 512px" />								</a>
 															</div>
 				</div>
@@ -3156,9 +3156,13 @@ window.__EMAIL__="reservations@hotelsheldon.com";
 (function(){
   "use strict";
   var path = (location.pathname || "/").replace(/\/+$/, "") || "/";
-  // Keep address bar extensionless: /home not /home.html or /home/
-  if (/\.html$/i.test(path) || (location.pathname.length > 1 && /\/$/.test(location.pathname))) {
-    var clean = path.replace(/\.html$/i, "") || "/home";
+  // Home lives at / — never show /home in the address bar
+  if (path === "/home" || path === "/home.html" || path === "/index") {
+    history.replaceState(null, "", "/" + location.search + location.hash);
+    path = "/";
+  } else if (/\.html$/i.test(path) || (location.pathname.length > 1 && /\/$/.test(location.pathname))) {
+    var clean = path.replace(/\.html$/i, "") || "/";
+    if (clean === "/home" || clean === "/index") clean = "/";
     if (clean !== location.pathname) {
       history.replaceState(null, "", clean + location.search + location.hash);
       path = clean;
@@ -3212,7 +3216,7 @@ window.__EMAIL__="reservations@hotelsheldon.com";
     var parts = raw.split("/");
     var key = parts[1] || "home";
     var anchor = parts[2] || "";
-    var dest = "/" + (key === "" ? "home" : key);
+    var dest = (key === "" || key === "home") ? "/" : ("/" + key);
     if (anchor) dest += "#" + anchor;
     e.preventDefault();
     location.href = dest;
