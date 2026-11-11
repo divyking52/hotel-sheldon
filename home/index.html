@@ -111,8 +111,9 @@ p{margin:0 0 1.1em}
   transition:opacity .5s ease;will-change:opacity,transform}
 .slide--on{opacity:1;animation:kb 5s linear forwards}
 @keyframes kb{from{transform:scale(1)}to{transform:scale(1.3)}}
-.hs-hero::before{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(360deg,rgba(0,0,0,.46) 36%,rgba(255,255,255,0) 63%)}
+.hs-hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(360deg,rgba(0,0,0,.46) 36%,rgba(255,255,255,0) 63%);
+  mix-blend-mode:multiply;opacity:1}
 .hs-hero__logo{width:40%;height:70px;max-width:100%;margin:0;padding:0 0 10px;object-fit:contain;object-position:center center}
 .hs-hero__tag{margin:0;padding:0 0 20px;color:#fff;font-family:var(--ff-h);font-size:17px;font-weight:700;
   line-height:17px;text-transform:uppercase;text-align:center}
@@ -130,8 +131,9 @@ p{margin:0 0 1.1em}
 
 .hs-sec{position:relative;isolation:isolate;background-size:cover;background-repeat:no-repeat}
 .hs-sec::before,.hs-sec__fade{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
-.hs-sec--wash::before{background:linear-gradient(#fff 0%,rgba(255,255,255,.56) 100%)}
-.hs-sec--wash .hs-sec__fade{background:linear-gradient(0deg,#fff 0%,rgba(255,255,255,.46) 50%);opacity:.98}
+/* Exact original washes: #FFFFFF → #FFFFFF8F (.56) */
+.hs-sec--wash::before{background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.56) 100%);opacity:1}
+.hs-sec--wash .hs-sec__fade{display:none}
 .hs-in{width:1140px;max-width:calc(100% - 40px);margin-inline:auto}
 .hs-row{display:flex;align-items:center;justify-content:space-between}
 .hs-h{font-family:var(--ff-h);font-size:35px;font-weight:700;line-height:52.5px;text-transform:uppercase;
@@ -145,27 +147,27 @@ p{margin:0 0 1.1em}
 .hs-btn svg{width:16px;height:16px;fill:currentColor;flex:none}
 .hs-frame{display:block;border:4px solid #f3f3f3;box-shadow:0 0 10px rgba(0,0,0,.15);object-fit:cover}
 
-.hs-intro{background-image:url(https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/8ef17f7f-f5e2-408a-abdf-f909843ece1f/island.webp);background-position:50% 0;padding-top:30px;height:690px}
+.hs-intro{background-image:url(https://hotelsheldon.com/wp-content/uploads/2024/06/island.webp);background-position:top center;background-size:cover;padding-top:30px;height:690px}
 .hs-intro .hs-row{height:100%}
 .hs-intro__img{width:500px;height:500px}
 .hs-intro__body{width:540px;margin-right:10px}
 .hs-intro__body .hs-h{white-space:nowrap}
 .hs-intro__mark{display:block;width:415px;margin:14px 0 34px}
 
-.hs-rooms{background-image:url(https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/65bcf0af-d082-4fe3-8369-48d4c728011e/AdobeStock_97604394.webp);background-position:50% 0;height:741px}
+.hs-rooms{background-image:url(https://hotelsheldon.com/wp-content/uploads/2024/06/AdobeStock_97604394.webp);background-position:top center;background-size:cover;height:741px}
 .hs-rooms .hs-row{height:100%;padding-bottom:20px}
 .hs-rooms__body{width:540px;margin-left:10px}
 .hs-rooms__media{position:relative;width:500px;height:561px;margin-right:1px}
 .hs-rooms__big{width:500px;height:500px}
 .hs-rooms__small{position:absolute;left:0;bottom:0;width:245px;height:182px}
 
-.hs-attr{background-image:url(https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/8a6e644b-9e89-48d1-b02a-0979dc5151e2/Exterior1.webp);background-position:50% 50%;padding-block:100px}
+.hs-attr{background-image:url(https://hotelsheldon.com/wp-content/uploads/2024/07/Exterior1.webp);background-position:center center;background-size:cover;padding-block:100px}
 .hs-attr__card{position:relative;isolation:isolate;width:513px;min-height:632px;padding:44px;
-  background:#fff url(https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/2fa9bc2a-9cf9-4d09-84cb-1678d31d87e3/MIAMI-BEACH-2.webp) 50% 50%/cover}
+  background:#fff url(https://hotelsheldon.com/wp-content/uploads/2024/06/MIAMI-BEACH-2.webp) 50% 50%/cover}
 .hs-attr__card::before{content:"";position:absolute;inset:0;background:#fff;opacity:.98;z-index:-1}
 
-.hs-gal{background-image:url(https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/2fa9bc2a-9cf9-4d09-84cb-1678d31d87e3/MIAMI-BEACH-2.webp);background-position:50% 0;padding-block:100px;text-align:center}
-.hs-gal::before{background:linear-gradient(#fff 0%,rgba(255,255,255,.92) 100%)}
+.hs-gal{background-image:url(https://hotelsheldon.com/wp-content/uploads/2024/06/MIAMI-BEACH-2.webp);background-position:top center;background-size:cover;padding-block:100px;text-align:center}
+.hs-gal::before{background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.92) 100%)}
 .hs-gal .hs-sec__fade{background:linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,.9) 100%)}
 .hs-gal__mark{display:block;width:450px;max-width:100%;margin:3px auto 20px}
 .hs-gal .hs-h{line-height:29px}
@@ -1107,8 +1109,8 @@ main .page.page--on:not([hidden]),main .page{display:block}
 </style>
 
 
-<style id="hs-image-brighten">
-/* Brighten photos to match hotelsheldon.com vibrancy */
+<style id="hs-home-contrast-match">
+/* Homepage contrast = hotelsheldon.com (post-6011) — no artificial brighten */
 .slide,
 .hs-frame,
 .hs-intro__img,
@@ -1116,61 +1118,27 @@ main .page.page--on:not([hidden]),main .page{display:block}
 .hs-rooms__small,
 .hs-car__item img,
 .hs-attr__img,
-.gtile img,
-.at-media img,
-.at-media .hs-frame,
-.at-hero__img,
-.phero__img,
-.ct-hero__img,
-.room__media img,
-.post__media img,
-.acc-card img,
-.elementor-widget-image img,
-.elementor-motion-effects-layer,
 .elementor-background-slideshow__slide__image{
-  filter:brightness(1.16) contrast(1.06) saturate(1.12);
-}
-/* Keep logos/icons unfiltered */
-.brand__img,
-.hs-hero__logo,
-.hs-intro__mark,
-.at-mark,
-.gsec img[src*="Logotype"],
-.foot__logo,
-.elementor-widget-theme-site-logo img,
-footer.elementor-location-footer img,
-.hs-btn svg{
   filter:none!important;
 }
-/* Lighten white washes so section background photos stay vivid */
-.hs-sec--wash::before{background:linear-gradient(#fff 0%,rgba(255,255,255,.32) 100%)!important}
-.hs-sec--wash .hs-sec__fade{background:linear-gradient(0deg,#fff 0%,rgba(255,255,255,.28) 50%)!important;opacity:.7!important}
-.hs-gal::before{background:linear-gradient(#fff 0%,rgba(255,255,255,.7) 100%)!important}
-.hs-gal .hs-sec__fade{background:linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,.65) 100%)!important}
-/* Lighter hero veils (text stays readable via text-shadow) */
-.at-hero__veil{background:rgba(0,0,0,.26)!important}
-.ghero::before{background:rgba(0,0,0,.3)!important}
-.phero__veil{background:linear-gradient(180deg,rgba(10,50,52,.28),rgba(10,50,52,.52))!important}
-.phero--center .phero__veil{background:linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,.16) 55%,rgba(0,0,0,.42) 100%)!important}
-.ct-hero::after,.ct-hero .ct-hero__veil{opacity:.85}
-/* Soften Elementor dark overlays on photo containers */
-.elementor-358 .e-con.e-parent,
-.elementor-397 .e-con.e-parent,
-.elementor-384 .e-con.e-parent{
-  --overlay-opacity:.28!important;
+/* Hero veil exact: #00000075 @ 36% → transparent @ 63%, multiply */
+.hs-hero::before{
+  background:linear-gradient(360deg,rgba(0,0,0,.46) 36%,rgba(255,255,255,0) 63%)!important;
+  mix-blend-mode:multiply!important;
+  opacity:1!important;
 }
-.elementor-358 .elementor-element.elementor-element-52f156a,
-.elementor-397 .elementor-element.elementor-element-8f4fd71,
-.elementor-384 .elementor-element.elementor-element-1ed318c{
-  --overlay-opacity:.32!important;
+/* Section washes exact: #FFFFFF → #FFFFFF8F (.56) */
+.hs-sec--wash::before{
+  background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.56) 100%)!important;
+  opacity:1!important;
 }
-/* Footer photo a bit livelier */
-.foot__bg{opacity:.9!important;filter:saturate(.85) brightness(1.08)!important}
-
-/* Home hero bottom gradient a bit lighter */
-.hs-hero::before{background:linear-gradient(360deg,rgba(0,0,0,.28) 30%,rgba(255,255,255,0) 68%)!important}
-/* Gallery tiles / lightbox remain crisp */
-.lb__fig img{filter:brightness(1.1) contrast(1.04) saturate(1.08)!important}
+.hs-sec--wash .hs-sec__fade{display:none!important}
+/* Gallery wash exact: #FFFFFF → #FFFFFFEB (.92) */
+.hs-gal::before{
+  background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.92) 100%)!important;
+  opacity:1!important;
+}
+.hs-gal .hs-sec__fade{display:none!important}
 </style>
 
 <style id="hs-footer-unify">
