@@ -117,16 +117,25 @@ p{margin:0 0 1.1em}
 .hs-hero__logo{width:40%;height:70px;max-width:100%;margin:0;padding:0 0 10px;object-fit:contain;object-position:center center}
 .hs-hero__tag{margin:0;padding:0 0 20px;color:#fff;font-family:var(--ff-h);font-size:17px;font-weight:700;
   line-height:17px;text-transform:uppercase;text-align:center}
-.avail{width:780px;max-width:780px;margin:0 0 -6%;background:#fff;
-  padding:12px 35px 15px;box-shadow:0 2px 10px 6px rgba(0,0,0,.1);border-radius:0;z-index:1}
-.avail__in{display:grid;grid-template-columns:repeat(4,1fr);gap:0 4px;align-items:end}
-.fld{display:flex;flex-direction:column}
-.fld span{font-family:var(--ff-b);font-size:14px;font-weight:700;line-height:28px;text-transform:uppercase;color:#343434}
-.fld input{width:100%;height:47px;border:1px solid #268F8E;border-left-width:5px;border-radius:0;
-  padding:6px 16px;background:#fff;color:#171717;font-family:var(--ff-h);font-size:16px}
+/* Availability bar — Elementor 265a217 (780px card, 25% cols, Flatpickr-like fields) */
+.avail-slot{width:780px;max-width:780px;align-self:center;z-index:1;box-sizing:border-box}
+.avail{width:100%;margin:0 0 -6%;background:#fff;padding:12px 35px 15px;
+  box-shadow:0 2px 10px 6px rgba(0,0,0,.1);border-radius:0;box-sizing:border-box}
+.avail__in{display:flex;flex-wrap:wrap;align-items:stretch;margin:0 -2.5px;width:auto}
+.fld,.avail__submit{flex:0 0 25%;width:25%;max-width:25%;padding:0 2.5px;margin:0;box-sizing:border-box;
+  display:flex;flex-direction:column;justify-content:flex-start;min-width:0}
+.avail__submit{justify-content:flex-end}
+.fld span{display:block;width:100%;font-family:"Ovo",var(--ff-b);font-size:14px;font-weight:700;line-height:28px;
+  text-transform:uppercase;color:#343434}
+.fld input{width:100%;height:47px;border:1px solid #268F8E;border-width:1px 1px 1px 5px;border-radius:0;
+  padding:6px 16px;background:#fff;color:#171717;font-family:var(--ff-h);font-size:16px;font-weight:400;
+  box-sizing:border-box;min-width:0;line-height:1.2;-webkit-appearance:none;appearance:none}
+.fld input.avail-date{cursor:pointer;caret-color:transparent}
+.fld input::placeholder{color:#8a8a8a;opacity:1}
 .fld input:focus{outline:none;box-shadow:0 0 0 2px rgba(38,143,142,.25)}
-.avail__go{height:48px;border:0;background:#2A6C72;color:#fff;cursor:pointer;font-family:var(--ff-b);
-  font-size:14px;font-weight:500;text-transform:uppercase;padding:12px 12px 13px 8px;transition:background .2s}
+.avail__go{width:100%;height:48px;border:0;background:#2A6C72;color:#fff;cursor:pointer;font-family:"Ovo",var(--ff-b);
+  font-size:14px;font-weight:500;letter-spacing:0;text-transform:uppercase;padding:12px 12px 13px 8px;
+  border-radius:0;transition:background .2s;box-sizing:border-box;line-height:1}
 .avail__go:hover{background:var(--teal-900)}
 
 .hs-sec{position:relative;isolation:isolate;background-size:cover;background-repeat:no-repeat}
@@ -481,8 +490,8 @@ section[id^="page-"]{scroll-margin-top:90px}
 @media (max-width:1180px){
   .hs-hero{height:auto;min-height:68vh}
   .hs-hero__logo{width:66%;height:50px;margin-bottom:0}
-  .avail{width:645px;padding:10px;margin-bottom:-77px}
-  .avail__in{grid-template-columns:repeat(4,minmax(0,1fr));gap:0 5px}
+  .avail-slot{width:645px;max-width:645px}
+  .avail{padding:10px;margin-bottom:-77px}
   .hs-in{max-width:calc(100% - 60px)}
   .hs-row{align-items:flex-start;gap:20px}
   .hs-intro,.hs-rooms{height:auto}
@@ -538,11 +547,12 @@ section[id^="page-"]{scroll-margin-top:90px}
   .hs-hero{height:auto;min-height:80vh}
   .hs-hero__logo{width:70%;height:auto;margin-bottom:0}
   .hs-hero__tag{font-size:14px;line-height:18.2px;padding-inline:0}
-  .avail{width:100%;max-width:none;margin-bottom:-113px}
-  .avail__in{grid-template-columns:repeat(10,minmax(0,1fr))}
-  .avail .fld{grid-column:span 5;min-width:0}
-  .avail .fld:nth-child(3){grid-column:span 4}
-  .avail__go{grid-column:span 6;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .avail-slot{width:auto;max-width:none;align-self:stretch;margin:0}
+  .avail{margin:0 0 -29%;padding:10px}
+  .fld{flex:0 0 50%;width:50%;max-width:50%}
+  .fld:nth-child(3){flex:0 0 40%;width:40%;max-width:40%}
+  .avail__submit{flex:0 0 60%;width:60%;max-width:60%}
+  .avail__go{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .hs-in{max-width:calc(100% - 40px)}
   .hs-row{flex-direction:column;align-items:stretch}
   .hs-intro{padding:160px 0 20px}
@@ -874,14 +884,17 @@ main .page.page--on:not([hidden]){display:block}
   .at-hero,.phero,.phero--center,.ghero{min-height:50vh}
   .head__in{max-width:100%;width:100%;padding-inline:20px}
   .hs-hero__logo{width:66%;height:50px}
-  .avail{width:100%;max-width:100%;margin:0 8% -10%;padding:10px}
+  /* Elementor tablet: side 8%, bottom -10% of parent width */
+  .avail-slot{width:auto;max-width:none;align-self:stretch;margin:0 8% -10%}
+  .avail{margin:0;padding:10px}
 }
 @media (max-width:767px){
-  .hs-hero{min-height:80vh}
+  .hs-hero{min-height:68vh!important}
   .at-hero,.phero,.phero--center,.ghero{min-height:50vh}
   .hs-hero__logo{width:70%;height:auto}
   .hs-hero__tag{font-size:14px;line-height:1.3em}
-  .avail{margin:0 0 -29%}
+  .avail-slot{margin:0}
+  .avail{margin:0 0 -29%;padding:10px}
 }
 </style>
 
@@ -1244,17 +1257,19 @@ main#main{background:#fff}
   <h1 class="sr-only">Hotel Sheldon</h1>
   <img class="hs-hero__logo" src="https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/9a15db92-0c4a-42a0-b701-684945a42654/HotelSheldon_Logotype_White_3x-1024x60.webp" alt="" width="1024" height="60" decoding="async">
   <p class="hs-hero__tag">Located in the Center of the Iconic Hollywood Beach Broadwalk</p>
+  <div class="avail-slot">
   <form class="avail" id="avail" autocomplete="off">
     <div class="avail__in">
       <label class="fld"><span>Check In</span>
-        <input type="date" id="checkin" name="checkin" value="2026-11-11" min="2026-11-11" required></label>
+        <input type="text" class="avail-date" id="checkin" name="checkin" inputmode="numeric" placeholder="YYYY-MM-DD" value="2026-11-11" required></label>
       <label class="fld"><span>Check Out</span>
-        <input type="date" id="checkout" name="checkout" value="2026-11-12" min="2026-11-11"></label>
+        <input type="text" class="avail-date" id="checkout" name="checkout" inputmode="numeric" placeholder="YYYY-MM-DD" value="2026-11-12"></label>
       <label class="fld"><span>Promo</span>
         <input type="text" name="promo_code" placeholder="Enter your promo code"></label>
-      <button class="avail__go" type="submit">Check Availability</button>
+      <div class="avail__submit"><button class="avail__go" type="submit">Check Availability</button></div>
     </div>
   </form>
+  </div>
 </div>
 
 <div class="hs-sec hs-sec--wash hs-intro"><span class="hs-sec__fade"></span>
@@ -1818,18 +1833,42 @@ window.__EMAIL__="reservations@hotelsheldon.com";
     var pad = function (n) { return (n < 10 ? "0" : "") + n; };
     var ymd = function (d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); };
     var now = new Date(), today = ymd(now);
-    cin.min = cout.min = today;
     if (!cin.value || cin.value < today) {
       cin.value = today;
       now.setDate(now.getDate() + 1);
       cout.value = ymd(now);
     }
-    cin.addEventListener("change", function () {
-      var next = new Date(cin.value);
-      next.setDate(next.getDate() + 2);
-      cout.min = cin.value;
-      if (!cout.value || cout.value <= cin.value) cout.value = next.toISOString().slice(0, 10);
+    // Flatpickr-like text fields + native picker on click (matches original look)
+    var bindDate = function (input, onPick) {
+      var hidden = document.createElement("input");
+      hidden.type = "date";
+      hidden.value = input.value || today;
+      hidden.min = today;
+      hidden.tabIndex = -1;
+      hidden.setAttribute("aria-hidden", "true");
+      hidden.style.cssText = "position:fixed;opacity:0;pointer-events:none;width:0;height:0;left:0;top:0";
+      document.body.appendChild(hidden);
+      var open = function () {
+        hidden.value = input.value || today;
+        hidden.min = input === cout && cin.value ? cin.value : today;
+        try { if (hidden.showPicker) hidden.showPicker(); else hidden.click(); } catch (err) { hidden.focus(); }
+      };
+      input.addEventListener("click", open);
+      input.addEventListener("focus", function () { input.select(); });
+      hidden.addEventListener("change", function () {
+        if (!hidden.value) return;
+        input.value = hidden.value;
+        if (onPick) onPick(hidden.value);
+      });
+    };
+    bindDate(cin, function (v) {
+      if (!cout.value || cout.value <= v) {
+        var next = new Date(v);
+        next.setDate(next.getDate() + 1);
+        cout.value = ymd(next);
+      }
     });
+    bindDate(cout);
     }
   }
 
