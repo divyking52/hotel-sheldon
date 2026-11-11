@@ -479,7 +479,6 @@ section[id^="page-"]{scroll-margin-top:90px}
   .hs-btn.head__book{padding:12px 16px;font-size:13px;line-height:13px;gap:8px}
 }
 @media (max-width:1180px){
-  .hs-hero{height:auto;min-height:68vh}
   .hs-hero__logo{width:66%;height:50px;margin-bottom:0}
   .avail{width:645px;padding:10px;margin-bottom:-77px}
   .avail__in{grid-template-columns:repeat(4,minmax(0,1fr));gap:0 5px}
@@ -535,7 +534,6 @@ section[id^="page-"]{scroll-margin-top:90px}
 @media (max-width:767px){
   .promo{font-size:12px}
   .brand__img{width:33px;height:33px}
-  .hs-hero{height:auto;min-height:80vh}
   .hs-hero__logo{width:70%;height:auto;margin-bottom:0}
   .hs-hero__tag{font-size:14px;line-height:18.2px;padding-inline:0}
   .avail{width:100%;max-width:none;margin-bottom:-113px}
@@ -866,18 +864,18 @@ html{scroll-behavior:smooth}
 main .page[hidden]{display:none!important}
 main .page.page--on:not([hidden]){display:block}
 
-/* ===== hero heights match hotelsheldon.com Elementor ===== */
-.hs-hero{height:auto;min-height:75vh} /* home slideshow */
-.at-hero,.phero,.phero--center,.ghero{height:auto;min-height:50vh} /* page heroes = accommodations 50vh */
+/* ===== hero heights = original fe91e23 (75vh; ≤1024 custom 68vh wins over Elementor 80vh) ===== */
+.hs-hero{height:auto;min-height:75vh}
+.at-hero,.phero,.phero--center,.ghero{height:auto;min-height:50vh}
 @media screen and (max-width:1024px){
-  .hs-hero{min-height:68vh}
+  .hs-hero{min-height:68vh!important}
   .at-hero,.phero,.phero--center,.ghero{min-height:50vh}
   .head__in{max-width:100%;width:100%;padding-inline:20px}
   .hs-hero__logo{width:66%;height:50px}
   .avail{width:100%;max-width:100%;margin:0 8% -10%;padding:10px}
 }
 @media (max-width:767px){
-  .hs-hero{min-height:80vh}
+  .hs-hero{min-height:68vh!important}
   .at-hero,.phero,.phero--center,.ghero{min-height:50vh}
   .hs-hero__logo{width:70%;height:auto}
   .hs-hero__tag{font-size:14px;line-height:1.3em}
@@ -1011,13 +1009,9 @@ h1.ot-title {
     border-radius: none !important;
 }
 
-/* Homepage hero section height media query */
-
-@media screen and (max-width: 1024px) { 
-    .elementor-6011 .elementor-element.elementor-element-fe91e23 {
-        /* Adjust properties as needed */
-        min-height: 68vh;
-    }
+/* Homepage hero — same custom override as original (≤1024 → 68vh) */
+@media screen and (max-width:1024px){
+  .hs-hero{min-height:68vh!important}
 }
 
 
