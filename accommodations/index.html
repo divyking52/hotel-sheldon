@@ -876,6 +876,8 @@ main .page.page--on:not([hidden]){display:block}
 <link rel='stylesheet' id='e-animation-fadeIn-css' href='https://hotelsheldon.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=4.3.6' media='all' />
 <link rel='stylesheet' id='elementor-post-358-css' href='https://hotelsheldon.com/wp-content/cache/background-css/hotelsheldon.com/wp-content/uploads/elementor/css/post-358.css?ver=1793887882&wpr_t=1794086616' media='all' />
 <link rel='stylesheet' id='elementor-post-257-css' href='https://hotelsheldon.com/wp-content/cache/background-css/hotelsheldon.com/wp-content/uploads/elementor/css/post-257.css?ver=1793887506&wpr_t=1794086616' media='all' />
+<link rel="preload" href="/fonts/PlayfairDisplay-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/fonts/PlayfairDisplay-Medium.ttf" as="font" type="font/ttf" crossorigin>
 <style id="elementor-pro-custom-fonts-inline-css">
 @font-face {
 	font-family: 'Playfair Display';
@@ -889,14 +891,15 @@ main .page.page--on:not([hidden]){display:block}
 	font-style: normal;
 	font-weight: 500;
 	font-display: auto;
-	src: url('https://hotelsheldon.com/wp-content/uploads/2026/09/PlayfairDisplay-Medium.ttf') format('truetype');
+	/* local copy — remote TTF is CORS-blocked from localhost */
+	src: url('/fonts/PlayfairDisplay-Medium.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'Playfair Display';
 	font-style: normal;
 	font-weight: 600;
 	font-display: auto;
-	src: url('https://hotelsheldon.com/wp-content/uploads/2026/09/PlayfairDisplay-SemiBold.ttf') format('truetype');
+	src: url('/fonts/PlayfairDisplay-SemiBold.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'Playfair Display';
@@ -1049,6 +1052,21 @@ h1.ot-title {
 /* Elementor content embedded in the Hotel Sheldon static pages */
 .hs-elementor .elementor-invisible{visibility:visible!important;opacity:1!important}
 .hs-elementor{position:relative;z-index:1}
+/* Match Astra + Elementor heading line-height on original */
+.hs-elementor .elementor-widget-heading h3.elementor-heading-title{line-height:1.3em}
+/* EXPERIENCE (9f2340f) — exact post-358 typography from hotelsheldon.com */
+.elementor-358 .elementor-element.elementor-element-9f2340f .elementor-heading-title{
+  font-family:"Playfair Display",sans-serif!important;
+  font-size:18px!important;
+  font-weight:600!important;
+  font-style:normal!important;
+  line-height:1.3em!important;
+  letter-spacing:normal!important;
+  text-transform:uppercase!important;
+  color:#494949!important;
+  margin:0!important;
+  padding:0!important;
+}
 </style>
 <style id="footer-white-text">
 /* Footer: all text white */
