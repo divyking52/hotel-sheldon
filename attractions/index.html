@@ -97,11 +97,13 @@ p{margin:0 0 1.1em}
   border:1px solid rgba(255,255,255,.55);white-space:nowrap}
 .hs-btn.head__book svg{width:14px;height:14px}
 .mbar{display:none}
-.burger{display:none;background:none;border:1px solid rgba(255,255,255,.5);border-radius:4px;padding:11px 13px;cursor:pointer}
-.burger span{display:block;width:20px;height:2px;background:#fff;margin:3px 0;transition:transform .2s,opacity .2s}
-.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger{display:none;background:#13AFAE;border:0;border-radius:3px;padding:0;cursor:pointer;
+  width:33px;height:33px;align-items:center;justify-content:center;flex-direction:column;gap:4px;box-sizing:border-box}
+.burger span{display:block;width:18px;height:2px;background:#fff;border-radius:1px;margin:0;transition:transform .2s ease,opacity .2s ease}
+.burger[aria-expanded="true"]{background:#13AFAE}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
-.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
 /* home (mirrors hotelsheldon.com at 1920px) */
 .hs-hero{position:relative;height:auto;min-height:75vh;display:flex;flex-direction:column;align-items:center;
@@ -485,17 +487,23 @@ section[id^="page-"]{scroll-margin-top:90px}
 @media (max-width:860px){
   .head__actions{margin-left:auto}
   .head__actions{display:flex}
-  .burger{display:block;position:relative;z-index:1;border:0;padding:7px 6px}
-  .burger[aria-expanded="true"] span{background:var(--ink)}
-  .nav{position:fixed;inset:0 0 auto auto;width:min(86vw,340px);height:100vh;flex-direction:column;
-    align-items:flex-start;justify-content:flex-start;gap:2px;background:#fff;padding:96px 26px 26px;
-    box-shadow:-20px 0 60px rgba(8,20,22,.22);transform:translateX(105%);transition:transform .3s ease;
-    margin:0;overflow:auto}
-  .nav--open{transform:none}
-  .nav__link{font-size:17px;padding:12px 0;width:100%;border-bottom:1px solid var(--line);color:var(--ink)}
-  .nav__link[aria-current="page"],.nav__link:hover{color:var(--teal)}
+  /* Mobile menu = Elementor dropdown (hotelsheldon.com) */
+  .head{overflow:visible}
+  .head__in{position:static;max-width:100%;width:100%;padding:0 16px;box-sizing:border-box}
+    .burger{display:flex;align-items:center;justify-content:center;position:relative;z-index:2;
+    width:33px;height:33px;border:0;border-radius:3px;padding:0;background:#13AFAE;box-sizing:border-box;flex-direction:column;gap:4px}
+  .burger[aria-expanded="true"]{background:#13AFAE}
+  .burger span,.burger[aria-expanded="true"] span{background:#fff}
+  .nav{position:absolute;top:100%;left:0;right:0;width:100%;max-width:none;height:auto;
+    flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;
+    background:#268F8E;padding:0;box-shadow:none;transform:none;margin:0;overflow:visible;
+    display:none;z-index:150}
+  .nav--open{display:flex}
+  .nav__link{font-family:Caudex,var(--ff-b),serif;font-size:12px;font-weight:500;line-height:20px;
+    padding:10px 20px;width:100%;border-bottom:0;color:#fff;box-sizing:border-box;text-align:left}
+  .nav__link[aria-current="page"],.nav__link.is-active,.nav__link:hover{color:#fff;background:#13AFAE}
   .nav__link::after{display:none}
-  .nav__legal{display:flex;gap:16px;margin-top:20px;font-size:13px}
+  .nav__legal{display:none!important}
   .split,.split--flip{grid-template-columns:1fr}
   .split--flip .split__media{order:0}
   .contact-grid,.att,.posts{grid-template-columns:1fr}
@@ -1113,20 +1121,31 @@ html.acc-h .at-hero,html.acc-h .phero--center,.ct-hero,.ghero{height:50vh!import
   opacity:.49!important;
 }
 
-/* Title placement / type — match original */
-.at-hero{padding:0!important}
-.at-hero__in{padding:0!important;gap:28px!important;justify-content:center!important;align-items:center!important;height:100%!important;width:min(100%,1140px)!important;margin:0 auto!important;text-align:center!important;transform:translateY(37px)!important}
+/* Title placement — bottom-aligned like hotelsheldon.com (not centered) */
+.at-hero{padding:0 0 59px!important;justify-content:flex-end!important;align-items:stretch!important}
+.at-hero__in{padding:0!important;gap:41px!important;justify-content:flex-end!important;align-items:center!important;height:100%!important;width:min(100%,1140px)!important;margin:0 auto!important;text-align:center!important;transform:none!important}
 .at-hero__h{font-size:55px!important;line-height:77px!important;padding:0!important;margin:0!important;
   text-shadow:rgba(0,0,0,.67) 1px 1px 10px!important}
+.at-hero .hs-btn{padding:20px 25px!important;font-size:16px!important;line-height:16px!important;min-height:56px!important;box-sizing:border-box!important}
 
-.ct-hero{padding:0!important}
-.ct-hero__in{justify-content:center!important;align-items:center!important;padding:0 20px!important;gap:28px!important;height:100%!important;text-align:center!important;transform:translateY(37px)!important}
+.ct-hero{padding:0 0 59px!important;justify-content:flex-end!important;align-items:stretch!important}
+.ct-hero__in{justify-content:flex-end!important;align-items:center!important;padding:0 20px!important;gap:41px!important;height:100%!important;text-align:center!important;transform:none!important}
 .ct-hero__in .hs-btn{position:static!important;left:auto!important;top:auto!important;transform:none!important;margin:0 auto!important;padding:20px 25px!important;font-size:16px!important;line-height:16px!important;min-height:56px!important;box-sizing:border-box!important}
 .ct-hero__h{font-size:55px!important;line-height:77px!important;padding:0!important;margin:0!important;
   text-shadow:rgba(0,0,0,.67) 1px 1px 10px!important}
 
+@media (max-width:767px){
+  .at-hero,.ct-hero{padding:0 0 60px!important}
+  .at-hero__in,.ct-hero__in{gap:40px!important;justify-content:flex-end!important}
+  .at-hero__h,.ct-hero__h{font-size:30px!important;line-height:1.4em!important}
+  .at-hero .hs-btn,.ct-hero__in .hs-btn{padding:15px 20px!important;font-size:15px!important;line-height:15px!important;min-height:45px!important}
+}
+
 .ghero__title{padding:0!important;margin:0 auto 90px!important;font-size:55px!important;line-height:77px!important;
   text-shadow:rgba(0,0,0,.67) 1px 1px 10px!important}
+@media (max-width:767px){
+  .ghero__title{font-size:30px!important;line-height:1.4em!important;margin:0 auto!important;padding:0 0 50px!important}
+}
 
 .phero.phero--center .phero__h{font-size:55px!important;line-height:77px!important;padding:0 0 100px!important;margin:0!important;
   text-shadow:rgba(0,0,0,.67) 1px 1px 10px!important}
@@ -1290,8 +1309,11 @@ footer.site-footer img,
 <link rel="stylesheet" href="/css/layout/fade-in.css">
 <link rel="stylesheet" href="/css/layout/fade-in-right.css">
 <link rel="stylesheet" href="/css/layout/motion-fx.css">
-<link rel="stylesheet" href="/css/site-footer.css">
+<link rel="stylesheet" href="/css/site-footer.css?v=2">
 <style id="hs-local-fonts">
+@font-face{font-family:'Caudex';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/Caudex-Regular.ttf') format('truetype')}
+@font-face{font-family:'Caudex';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/Caudex-Bold.ttf') format('truetype')}
+
 @font-face{font-family:'Playfair Display';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/PlayfairDisplay-Medium.ttf') format('truetype')}
 @font-face{font-family:'Playfair Display';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/PlayfairDisplay-SemiBold.ttf') format('truetype')}
 </style>
@@ -1903,6 +1925,6 @@ window.__EMAIL__="reservations@hotelsheldon.com";
 })();
 </script>
 
-<script src="/js/site-footer.js" defer></script>
+<script src="/js/site-footer.js?v=3" defer></script>
 </body>
 </html>

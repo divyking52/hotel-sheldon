@@ -294,6 +294,15 @@
 }
 
 @media (max-width:767px){
+  /* Clear fixed mobile Book Now bar (~72px) so copyright scrolls fully above it */
+  .site-footer{
+    padding-bottom:0;
+    background:var(--sf-teal);
+  }
+  .site-footer__bar{
+    padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));
+    box-sizing:border-box;
+  }
   .site-footer__hero{min-height:544px}
   .site-footer__inner{
     flex-direction:column;

@@ -97,11 +97,13 @@ p{margin:0 0 1.1em}
   border:1px solid rgba(255,255,255,.55);white-space:nowrap}
 .hs-btn.head__book svg{width:14px;height:14px}
 .mbar{display:none}
-.burger{display:none;background:none;border:1px solid rgba(255,255,255,.5);border-radius:4px;padding:11px 13px;cursor:pointer}
-.burger span{display:block;width:20px;height:2px;background:#fff;margin:3px 0;transition:transform .2s,opacity .2s}
-.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger{display:none;background:#13AFAE;border:0;border-radius:3px;padding:0;cursor:pointer;
+  width:33px;height:33px;align-items:center;justify-content:center;flex-direction:column;gap:4px;box-sizing:border-box}
+.burger span{display:block;width:18px;height:2px;background:#fff;border-radius:1px;margin:0;transition:transform .2s ease,opacity .2s ease}
+.burger[aria-expanded="true"]{background:#13AFAE}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
-.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
 /* home (mirrors hotelsheldon.com at 1920px) */
 .hs-hero{position:relative;height:auto;min-height:75vh;display:flex;flex-direction:column;align-items:center;
@@ -132,7 +134,13 @@ p{margin:0 0 1.1em}
   box-sizing:border-box;min-width:0;line-height:1.2;-webkit-appearance:none;appearance:none}
 .fld input.avail-date{cursor:pointer;caret-color:transparent}
 .fld input::placeholder{color:#8a8a8a;opacity:1}
-.fld input:focus{outline:none;box-shadow:0 0 0 2px rgba(38,143,142,.25)}
+.fld input:focus,.fld input:focus-visible{
+  outline:none!important;
+  border-color:#268F8E!important;
+  border-style:dotted!important;
+  border-width:1px 1px 1px 5px!important;
+  box-shadow:rgba(0,0,0,.1) 0 0 0 1px inset!important;
+}
 .avail__go{width:100%;height:48px;border:0;background:#2A6C72;color:#fff;cursor:pointer;font-family:"Ovo",var(--ff-b);
   font-size:14px;font-weight:500;letter-spacing:0;text-transform:uppercase;padding:12px 12px 13px 8px;
   border-radius:0;transition:background .2s;box-sizing:border-box;line-height:1}
@@ -536,17 +544,23 @@ section[id^="page-"]{scroll-margin-top:90px}
 @media (max-width:860px){
   .head__actions{margin-left:auto}
   .head__actions{display:flex}
-  .burger{display:block;position:relative;z-index:1;border:0;padding:7px 6px}
-  .burger[aria-expanded="true"] span{background:var(--ink)}
-  .nav{position:fixed;inset:0 0 auto auto;width:min(86vw,340px);height:100vh;flex-direction:column;
-    align-items:flex-start;justify-content:flex-start;gap:2px;background:#fff;padding:96px 26px 26px;
-    box-shadow:-20px 0 60px rgba(8,20,22,.22);transform:translateX(105%);transition:transform .3s ease;
-    margin:0;overflow:auto}
-  .nav--open{transform:none}
-  .nav__link{font-size:17px;padding:12px 0;width:100%;border-bottom:1px solid var(--line);color:var(--ink)}
-  .nav__link[aria-current="page"],.nav__link:hover{color:var(--teal)}
+  /* Mobile menu = Elementor dropdown (hotelsheldon.com) */
+  .head{overflow:visible}
+  .head__in{position:static;max-width:100%;width:100%;padding:0 16px;box-sizing:border-box}
+    .burger{display:flex;align-items:center;justify-content:center;position:relative;z-index:2;
+    width:33px;height:33px;border:0;border-radius:3px;padding:0;background:#13AFAE;box-sizing:border-box;flex-direction:column;gap:4px}
+  .burger[aria-expanded="true"]{background:#13AFAE}
+  .burger span,.burger[aria-expanded="true"] span{background:#fff}
+  .nav{position:absolute;top:100%;left:0;right:0;width:100%;max-width:none;height:auto;
+    flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;
+    background:#268F8E;padding:0;box-shadow:none;transform:none;margin:0;overflow:visible;
+    display:none;z-index:150}
+  .nav--open{display:flex}
+  .nav__link{font-family:Caudex,var(--ff-b),serif;font-size:12px;font-weight:500;line-height:20px;
+    padding:10px 20px;width:100%;border-bottom:0;color:#fff;box-sizing:border-box;text-align:left}
+  .nav__link[aria-current="page"],.nav__link.is-active,.nav__link:hover{color:#fff;background:#13AFAE}
   .nav__link::after{display:none}
-  .nav__legal{display:flex;gap:16px;margin-top:20px;font-size:13px}
+  .nav__legal{display:none!important}
   .split,.split--flip{grid-template-columns:1fr}
   .split--flip .split__media{order:0}
   .contact-grid,.att,.posts{grid-template-columns:1fr}
@@ -1082,8 +1096,21 @@ main .page.page--on:not([hidden]),main .page{display:block}
 <link rel="stylesheet" href="/css/layout/fade-in.css">
 <link rel="stylesheet" href="/css/layout/fade-in-right.css">
 <link rel="stylesheet" href="/css/layout/motion-fx.css">
-<link rel="stylesheet" href="/css/site-footer.css">
+<link rel="stylesheet" href="/css/site-footer.css?v=2">
+<link rel="stylesheet" href="/css/vendor/flatpickr.min.css">
+<style id="hs-flatpickr-align">
+/* Match hotelsheldon.com Elementor Flatpickr under avail fields */
+.flatpickr-calendar{z-index:2000!important;font-family:var(--ff-h),Georgia,serif;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.flatpickr-calendar.open{display:inline-block}
+.flatpickr-calendar.arrowTop:before,.flatpickr-calendar.arrowTop:after{left:22px}
+.flatpickr-calendar.arrowBottom:before,.flatpickr-calendar.arrowBottom:after{left:22px}
+.fld input.avail-date.flatpickr-input{background:#fff;cursor:pointer}
+.avail-slot{position:relative;z-index:5}
+</style>
 <style id="hs-local-fonts">
+@font-face{font-family:'Caudex';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/Caudex-Regular.ttf') format('truetype')}
+@font-face{font-family:'Caudex';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/Caudex-Bold.ttf') format('truetype')}
+
 @font-face{font-family:'Playfair Display';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/PlayfairDisplay-Medium.ttf') format('truetype')}
 @font-face{font-family:'Playfair Display';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/PlayfairDisplay-SemiBold.ttf') format('truetype')}
 </style>
@@ -1114,9 +1141,9 @@ main .page.page--on:not([hidden]),main .page{display:block}
   <form class="avail" id="avail" autocomplete="off">
     <div class="avail__in">
       <label class="fld"><span>Check In</span>
-        <input type="text" class="avail-date" id="checkin" name="checkin" inputmode="numeric" placeholder="YYYY-MM-DD" value="2026-11-11" required></label>
+        <input type="text" class="avail-date" id="checkin" name="checkin" inputmode="numeric" placeholder="YYYY-MM-DD" value="2026-11-11" required readonly></label>
       <label class="fld"><span>Check Out</span>
-        <input type="text" class="avail-date" id="checkout" name="checkout" inputmode="numeric" placeholder="YYYY-MM-DD" value="2026-11-12"></label>
+        <input type="text" class="avail-date" id="checkout" name="checkout" inputmode="numeric" placeholder="YYYY-MM-DD" value="2026-11-12" readonly></label>
       <label class="fld"><span>Promo</span>
         <input type="text" name="promo_code" placeholder="Enter your promo code"></label>
       <div class="avail__submit"><button class="avail__go" type="submit">Check Availability</button></div>
@@ -1245,6 +1272,7 @@ main .page.page--on:not([hidden]),main .page{display:block}
   });});
 })();
 </script>
+<script src="/js/vendor/flatpickr.min.js"></script>
 <script>
 window.__BOOKING__="https://hotels.cloudbeds.com/en/reservas/6rkVFi/";
 window.__EMAIL__="reservations@hotelsheldon.com";
@@ -1536,7 +1564,7 @@ window.__EMAIL__="reservations@hotelsheldon.com";
       window.open(BOOKING + (q.length ? "?" + q.join("&") : ""), "_blank", "noopener");
     });
     var cin = $("#checkin"), cout = $("#checkout");
-    if (cin && cout) {
+    if (cin && cout && window.flatpickr) {
     var pad = function (n) { return (n < 10 ? "0" : "") + n; };
     var ymd = function (d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); };
     var now = new Date(), today = ymd(now);
@@ -1545,37 +1573,34 @@ window.__EMAIL__="reservations@hotelsheldon.com";
       now.setDate(now.getDate() + 1);
       cout.value = ymd(now);
     }
-    // Flatpickr-like text fields + native picker on click (matches original look)
-    var bindDate = function (input, onPick) {
-      var hidden = document.createElement("input");
-      hidden.type = "date";
-      hidden.value = input.value || today;
-      hidden.min = today;
-      hidden.tabIndex = -1;
-      hidden.setAttribute("aria-hidden", "true");
-      hidden.style.cssText = "position:fixed;opacity:0;pointer-events:none;width:0;height:0;left:0;top:0";
-      document.body.appendChild(hidden);
-      var open = function () {
-        hidden.value = input.value || today;
-        hidden.min = input === cout && cin.value ? cin.value : today;
-        try { if (hidden.showPicker) hidden.showPicker(); else hidden.click(); } catch (err) { hidden.focus(); }
-      };
-      input.addEventListener("click", open);
-      input.addEventListener("focus", function () { input.select(); });
-      hidden.addEventListener("change", function () {
-        if (!hidden.value) return;
-        input.value = hidden.value;
-        if (onPick) onPick(hidden.value);
-      });
-    };
-    bindDate(cin, function (v) {
-      if (!cout.value || cout.value <= v) {
-        var next = new Date(v);
-        next.setDate(next.getDate() + 1);
-        cout.value = ymd(next);
+    /* Elementor Flatpickr (hotelsheldon.com) — Y-m-d, under field, linked range */
+    var coutFp = flatpickr(cout, {
+      dateFormat: "Y-m-d",
+      allowInput: false,
+      disableMobile: false,
+      minDate: cin.value || today,
+      position: "auto",
+      static: false,
+      monthSelectorType: "dropdown"
+    });
+    var cinFp = flatpickr(cin, {
+      dateFormat: "Y-m-d",
+      allowInput: false,
+      disableMobile: false,
+      minDate: today,
+      position: "auto",
+      static: false,
+      monthSelectorType: "dropdown",
+      onChange: function (selected) {
+        if (!selected || !selected[0]) return;
+        var d = selected[0];
+        var next = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1);
+        coutFp.set("minDate", d);
+        if (!coutFp.selectedDates[0] || coutFp.selectedDates[0] <= d) {
+          coutFp.setDate(next, true);
+        }
       }
     });
-    bindDate(cout);
     }
   }
 
@@ -1790,6 +1815,6 @@ window.__EMAIL__="reservations@hotelsheldon.com";
 })();
 </script>
 
-<script src="/js/site-footer.js" defer></script>
+<script src="/js/site-footer.js?v=3" defer></script>
 </body>
 </html>

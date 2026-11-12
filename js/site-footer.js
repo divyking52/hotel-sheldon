@@ -54,17 +54,22 @@
     "  </div>" +
     "</footer>";
 
-  function ensureSrOnly() {
+  function ensureFooterStyles() {
     if (document.getElementById("site-footer-sr-style")) return;
     var s = document.createElement("style");
     s.id = "site-footer-sr-style";
     s.textContent =
-      ".sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}";
+      ".sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}" +
+      /* Keep copyright above fixed mobile Book Now bar when scrolled to end */
+      "@media (max-width:767px){" +
+      ".site-footer{background:#106C72}" +
+      ".site-footer__bar{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))!important;box-sizing:border-box}" +
+      "}";
     document.head.appendChild(s);
   }
 
   function mount() {
-    ensureSrOnly();
+    ensureFooterStyles();
     var root = document.getElementById("site-footer-root");
     if (!root) {
       root = document.createElement("div");
@@ -87,14 +92,21 @@
       e.preventDefault();
       var honey = form.querySelector('[name="company"]');
       if (honey && honey.value) return;
-      var email = (form.querySelector('[name="email"]').value || "").trim();
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        if (note) {
-          note.hidden = false;
-          note.textContent = "Please enter a valid email address.";
+      var emailEl = form.querySelector('[name="email"]');
+      if (note) {
+        note.hidden = true;
+        note.textContent = "";
+      }
+      /* Native browser bubble (Chrome: orange ! + “Please fill in this field.”) */
+      if (!emailEl || !emailEl.checkValidity()) {
+        if (emailEl) {
+          emailEl.setAttribute("aria-invalid", "true");
+          emailEl.focus();
+          emailEl.reportValidity();
         }
         return;
       }
+      emailEl.removeAttribute("aria-invalid");
       if (note) {
         note.hidden = false;
         note.textContent =
