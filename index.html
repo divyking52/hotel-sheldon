@@ -141,7 +141,7 @@ p{margin:0 0 1.1em}
 .hs-sec{position:relative;isolation:isolate;background-size:cover;background-repeat:no-repeat}
 .hs-sec::before,.hs-sec__fade{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
 /* Match accommodations room wash look: rgba(.9) → #fff */
-.hs-sec--wash::before{background:linear-gradient(180deg,rgba(255,255,255,.9) 0%,#fff 100%);opacity:1}
+.hs-sec--wash::before{background:linear-gradient(#fff 0%,rgba(255,255,255,.56) 100%);opacity:1}
 .hs-sec--wash .hs-sec__fade{display:none}
 .hs-in{width:1140px;max-width:calc(100% - 40px);margin-inline:auto}
 .hs-row{display:flex;align-items:center;justify-content:space-between}
@@ -156,16 +156,23 @@ p{margin:0 0 1.1em}
 .hs-btn svg{width:16px;height:16px;fill:currentColor;flex:none}
 .hs-frame{display:block;border:4px solid #f3f3f3;box-shadow:0 0 10px rgba(0,0,0,.15);object-fit:cover}
 
-/* Intro / rooms / gallery: same wash as accommodations room sections */
+/* Intro / rooms: two original backgrounds, soft white-gradient merge at join */
 .hs-intro{
+  position:relative;isolation:isolate;
   background-image:url(/assets/media/2024/06/island.webp);
   background-position:top center;background-size:cover;background-repeat:no-repeat;
   padding-top:30px;height:690px}
 .hs-intro .hs-sec__fade{display:none!important}
 .hs-intro::before{
   content:""!important;display:block!important;position:absolute!important;inset:0!important;
-  z-index:0!important;pointer-events:none;background-color:transparent!important;
-  background-image:linear-gradient(180deg,rgba(255,255,255,.9) 0%,#fff 100%)!important;opacity:1!important}
+  z-index:0!important;pointer-events:none;background-color:transparent!important;opacity:1!important;
+  background-image:linear-gradient(
+    180deg,
+    #fff 0%,
+    rgba(255,255,255,.62) 42%,
+    rgba(255,255,255,.86) 78%,
+    #fff 100%
+  )!important}
 .hs-intro > *{position:relative;z-index:1}
 .hs-intro .hs-row{height:100%}
 .hs-intro__img{width:500px;height:500px}
@@ -174,13 +181,20 @@ p{margin:0 0 1.1em}
 .hs-intro__mark{display:block;width:415px;margin:14px 0 34px}
 
 .hs-rooms{
+  position:relative;isolation:isolate;
   background-image:url(/assets/media/2024/06/AdobeStock_97604394.webp);
   background-position:top center;background-size:cover;background-repeat:no-repeat;height:741px}
 .hs-rooms .hs-sec__fade{display:none!important}
 .hs-rooms::before{
   content:""!important;display:block!important;position:absolute!important;inset:0!important;
-  z-index:0!important;pointer-events:none;background-color:transparent!important;
-  background-image:linear-gradient(180deg,rgba(255,255,255,.9) 0%,#fff 100%)!important;opacity:1!important}
+  z-index:0!important;pointer-events:none;background-color:transparent!important;opacity:1!important;
+  background-image:linear-gradient(
+    180deg,
+    #fff 0%,
+    rgba(255,255,255,.88) 14%,
+    rgba(255,255,255,.62) 48%,
+    rgba(255,255,255,.56) 100%
+  )!important}
 .hs-rooms > *{position:relative;z-index:1}
 .hs-rooms .hs-row{height:100%;padding-bottom:20px}
 .hs-rooms__body{width:540px;margin-left:10px}
@@ -201,7 +215,7 @@ p{margin:0 0 1.1em}
 .hs-gal::before{
   content:""!important;display:block!important;position:absolute!important;inset:0!important;
   z-index:0!important;pointer-events:none;background-color:transparent!important;
-  background-image:linear-gradient(180deg,rgba(255,255,255,.9) 0%,#fff 100%)!important;opacity:1!important}
+  background-image:linear-gradient(#fff 0%,rgba(255,255,255,.56) 100%)!important;opacity:1!important}
 .hs-gal > *{position:relative;z-index:1}
 .hs-gal__mark{display:block;width:450px;max-width:100%;margin:3px auto 20px}
 .hs-gal .hs-h{line-height:29px}
@@ -1054,14 +1068,12 @@ main .page.page--on:not([hidden]),main .page{display:block}
   mix-blend-mode:multiply!important;
   opacity:1!important;
 }
-/* Force wash stacking — same opacity curve as accommodations */
+/* Keep intro/rooms dual-bg washes; gal own wash */
 .hs-intro,.hs-rooms,.hs-gal{isolation:isolate}
-.hs-intro::before,
-.hs-rooms::before,
 .hs-gal::before{
   content:""!important;display:block!important;position:absolute!important;inset:0!important;
   z-index:0!important;opacity:1!important;
-  background-image:linear-gradient(180deg,rgba(255,255,255,.9) 0%,#fff 100%)!important}
+  background-image:linear-gradient(#fff 0%,rgba(255,255,255,.56) 100%)!important}
 .hs-intro > *,.hs-rooms > *,.hs-gal > *{position:relative;z-index:1}
 .hs-intro .hs-sec__fade,.hs-rooms .hs-sec__fade,.hs-gal .hs-sec__fade{display:none!important}
 .page--home .hs-gal::after{
