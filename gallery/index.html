@@ -53,7 +53,7 @@ p{margin:0 0 1.1em}
   transition:transform .16s ease,box-shadow .16s ease,background .16s,color .16s;white-space:nowrap}
 .btn:hover{transform:translateY(-2px)}
 .btn--solid{background:var(--teal);color:#fff;box-shadow:var(--sh-2)}
-.btn--solid:hover{background:var(--teal-800);color:#fff}
+.btn--solid:hover{background:var(--teal-bright);color:#fff}
 .btn--ink{background:var(--ink);color:#fff}
 .btn--ink:hover{background:#000;color:#fff}
 .btn--ghost{background:transparent;color:var(--ink);border-color:var(--line);text-transform:none;letter-spacing:0}
@@ -126,7 +126,7 @@ p{margin:0 0 1.1em}
 .fld input:focus{outline:none;box-shadow:0 0 0 2px rgba(38,143,142,.25)}
 .avail__go{height:48px;border:0;background:#2A6C72;color:#fff;cursor:pointer;font-family:var(--ff-b);
   font-size:14px;font-weight:500;text-transform:uppercase;padding:12px 12px 13px 8px;transition:background .2s}
-.avail__go:hover{background:var(--teal-900)}
+.avail__go:hover{background:var(--teal-bright)}
 
 .hs-sec{position:relative;isolation:isolate;background-size:cover;background-repeat:no-repeat}
 .hs-sec::before,.hs-sec__fade{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
@@ -141,7 +141,7 @@ p{margin:0 0 1.1em}
 .hs-btn{display:inline-flex;align-items:center;gap:15px;background:var(--teal);color:#fff;
   font-family:var(--ff-b);font-size:16px;font-weight:500;line-height:16px;letter-spacing:1px;
   text-transform:uppercase;padding:20px 25px;box-shadow:0 0 10px rgba(0,0,0,.15);transition:background .2s}
-.hs-btn:hover{background:var(--teal-900);color:#fff}
+.hs-btn:hover{background:var(--teal-bright);color:#fff}
 .hs-btn svg{width:16px;height:16px;fill:currentColor;flex:none}
 .hs-frame{display:block;border:4px solid #f3f3f3;box-shadow:0 0 10px rgba(0,0,0,.15);object-fit:cover}
 
@@ -420,7 +420,7 @@ section[id^="page-"]{scroll-margin-top:90px}
 .offer-form input[aria-invalid="true"]{border-color:#c0392b}
 .offer-form button{min-height:40px;padding:12px 24px;border:0;border-radius:3px;background:#106C72;color:#fff;cursor:pointer;
   font-family:var(--ff-h);font-size:15px;font-weight:500;line-height:1;text-transform:uppercase;transition:background .2s}
-.offer-form button:hover{background:var(--teal-800)}
+.offer-form button:hover{background:var(--teal-bright)}
 .offer-form .form-note{margin:0}
 .offer-form .form-note:empty{display:none}
 .lb{position:fixed;inset:0;z-index:220;background:rgba(6,20,22,.94);display:flex;align-items:center;
@@ -591,7 +591,7 @@ section[id^="page-"]{scroll-margin-top:90px}
 .ct-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;z-index:-1}
 .ct-hero__in{position:relative;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 20px}
 .ct-hero__in .hs-btn{position:absolute;left:50%;top:70%;transform:translateX(-50%)}
-.ct-hero__h{font-family:var(--ff-h);font-size:clamp(34px,4vw,52px);font-weight:700;line-height:1;color:#fff;text-transform:uppercase;margin:0;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.ct-hero__h{font-family:var(--ff-h);font-size:55px;font-weight:700;line-height:77px;color:#fff;text-transform:uppercase;margin:0;text-shadow:rgba(0,0,0,.67) 1px 1px 10px}
 .ct-hero .hs-btn{padding:17px 25px;white-space:nowrap}
 .ct-wrap{background:url(/assets/media/2024/07/Balcony-Oceanfront-King_7242-1.webp) 50% 50%/cover no-repeat;padding:0 0 70px;isolation:isolate}
 .ct-wrap::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.84))}
@@ -620,7 +620,7 @@ section[id^="page-"]{scroll-margin-top:90px}
 .ct-form input[aria-invalid="true"],.ct-form textarea[aria-invalid="true"]{border-color:#c0392b;box-shadow:none}
 .ct-send{width:100%;height:44px;border:0;border-radius:0;background:#2A6C72;color:#fff;cursor:pointer;
   font-family:var(--ff-h);font-size:14px;text-transform:uppercase;letter-spacing:0;transition:background .2s}
-.ct-send:hover{background:var(--teal-900)}
+.ct-send:hover{background:var(--teal-bright)}
 .ct-form .form-note{margin:0}
 .ct-dirs{margin-top:120px;text-align:center;padding-bottom:70px}
 .ct-dir-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:46px}
@@ -648,7 +648,7 @@ section[id^="page-"]{scroll-margin-top:90px}
 /* attractions (mirrors hotelsheldon.com/attractions hero exactly) */
 .at-hero{position:relative;isolation:isolate;height:auto;min-height:50vh;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-end;text-align:center;overflow:hidden;background:var(--teal-900)}
 .at-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:-2}
-.at-hero__veil{position:absolute;inset:0;z-index:-1;background:rgba(0,0,0,.43);pointer-events:none}
+.at-hero__veil{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%);background-color:transparent;opacity:.43;pointer-events:none}
 .at-hero__in{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:30px;width:min(100%,1140px);margin:0 auto;padding:0 0 60px;box-sizing:border-box}
 .at-hero__h{font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-size:55px;font-weight:700;color:#fff;text-transform:uppercase;margin:0;padding:0 0 10px;line-height:77px;letter-spacing:normal;text-align:center;width:100%;text-shadow:rgba(0,0,0,.67) 1px 1px 10px}
 .at-sec{background:#e9ebef;padding:130px 0 90px}
@@ -686,25 +686,25 @@ main{display:block}
 }
 
 /* ===== gallery section (matches hotelsheldon.com/gallery) ===== */
-.gsec{position:relative;isolation:isolate;padding:48px 18px 80px;background:#fff}
-.gsec__bg{position:absolute;inset:0 0 auto 0;height:560px;z-index:-1;pointer-events:none;
-  background:url(/assets/media/2024/07/Exterior1-1.webp) 50% 0/cover no-repeat}
-.gsec__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.93) 0%,rgba(255,255,255,.96) 70%,#fff 100%)}
-.gsec__head{max-width:1288px;margin:0 auto;text-align:center}
-.gsec__title{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:0;
-  font-family:var(--ff-h);font-weight:700;font-size:clamp(26px,3.3vw,44px);line-height:1.2;text-transform:uppercase;color:#2c6a70}
+.gsec{position:relative;isolation:isolate;padding:100px 0;background:transparent}
+.gsec__bg{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url(/assets/media/2024/06/island.webp) 0 0 / auto repeat}
+.gsec__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.91) 0%,#fff 100%);opacity:.99}
+.gsec__head{max-width:1288px;margin:0 auto;text-align:center;padding:0 12px}
+.gsec__title{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin:0;padding-bottom:14px;
+  font-family:var(--ff-h);font-weight:700;font-size:35px;line-height:29px;text-transform:uppercase;color:#106C72}
 .gsec__title span{display:inline-block}
-.gsec__mark{display:block;width:clamp(230px,26vw,380px);height:auto;
+.gsec__mark{display:block;width:467px;max-width:100%;height:auto;
   filter:brightness(0) saturate(100%) invert(35%) sepia(42%) saturate(748%) hue-rotate(141deg) brightness(92%) contrast(95%)!important}
-.gsec__intro{max-width:640px;margin:34px auto 0;font-family:var(--ff-h);font-weight:400;font-size:clamp(16px,1.5vw,19px);
-  line-height:1.65;color:#4d4d4d}
-.gtabs{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 14px;margin:62px 0 28px}
-.gtab{position:relative;border:0;background:none;cursor:pointer;padding:10px 22px 14px;font-family:var(--ff-h);
-  font-size:clamp(14px,1.35vw,17px);text-transform:uppercase;color:#111;letter-spacing:0;transition:color .25s}
-.gtab::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#2c8a86;
+.gsec__intro{max-width:703px;margin:20px auto 0;font-family:var(--ff-h);font-weight:400;font-size:17px;
+  line-height:28.05px;color:#494949}
+.gtabs{display:flex;justify-content:center;flex-wrap:wrap;gap:0;margin:50px 0 20px;padding:0}
+.gtab{position:relative;border:0;background:none;cursor:pointer;padding:7px 14px;margin:0 10px 0 0;font-family:var(--ff-b);
+  font-size:15px;line-height:28.05px;font-weight:700;text-transform:uppercase;color:#171717;letter-spacing:0;transition:color .25s}
+.gtab::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#268F8E;
   transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
-.gtab:hover{color:#2c8a86}
-.gtab--on{color:#2c8a86}
+.gtab:hover{color:#268F8E}
+.gtab--on{color:#268F8E}
 .gtab--on::after{transform:scaleX(1)}
 .ggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;max-width:none;margin:0}
 .gtile{position:relative;display:block;aspect-ratio:1/1;padding:0;border:0;background:#e9eef0;overflow:hidden;
@@ -719,18 +719,18 @@ main{display:block}
 .gsec .gtile.reveal{transform:translateY(46px) scale(.97)}
 .gsec .reveal.reveal--in{opacity:1;transform:none}
 @media (max-width:1000px){.ggrid{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:700px){.gsec{padding:36px 10px 60px}.ggrid{grid-template-columns:repeat(2,1fr);gap:6px}.gtabs{margin-top:40px}.gsec__intro{margin-top:22px}}
+@media (max-width:700px){.gsec{padding:50px 10px!important}.gsec__title{font-size:28px;line-height:29px}.gsec__mark{width:min(320px,100%)}.ggrid{grid-template-columns:repeat(2,1fr);gap:6px}.gtabs{margin-top:16px}.gsec__intro{margin-top:16px;font-size:17px;line-height:28.05px}}
 @media (max-width:420px){.ggrid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.gsec .reveal{opacity:1;transform:none;transition:none}}
 
 /* ===== gallery hero banner (same as hotelsheldon.com/gallery) ===== */
 .ghero{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-end;
   height:auto;min-height:50vh;padding:10px;box-sizing:border-box;text-align:center;overflow:hidden;background:#8a8f93 url(/assets/media/2024/07/Deluxe-Oceanfront-King_7074-1.webp) 50% 50%/cover no-repeat;overflow:hidden}
-.ghero::before{content:"";position:absolute;inset:0;z-index:0;background:rgba(0,0,0,.49);pointer-events:none}
-.ghero__title{margin:0 auto;padding:0 0 90px;font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:700;text-transform:uppercase;font-size:55px;line-height:77px;letter-spacing:normal;color:#fff;text-shadow:rgba(0,0,0,.67) 1px 1px 10px;text-align:center;width:min(100%,1140px);max-width:1140px;position:relative;z-index:1;box-sizing:border-box}@media (max-width:767px){.ghero__title{font-size:30px;line-height:1.4em;padding-bottom:50px}}
+.ghero::before{content:"";position:absolute;inset:0;z-index:0;background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%);background-color:transparent;opacity:.49;pointer-events:none}
+.ghero__title{margin:0 auto 90px;padding:0;font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:700;text-transform:uppercase;font-size:55px;line-height:77px;letter-spacing:normal;color:#fff;text-shadow:rgba(0,0,0,.67) 1px 1px 10px;text-align:center;width:min(100%,1140px);max-width:1140px;position:relative;z-index:1;box-sizing:border-box}@media (max-width:767px){.ghero__title{font-size:30px;line-height:1.4em;padding-bottom:50px}}
 /* gallery: slightly smaller photos */
 .gsec .ggrid{max-width:1120px!important;margin:0 auto!important;gap:10px!important;padding:0 10px!important}
-.gsec{padding-top:40px}
+.gsec{padding:100px 0!important}
 /* floating buttons */
 .fab{position:fixed;bottom:18px;z-index:150;width:50px;height:50px;border-radius:50%;border:0;cursor:pointer;
   background:#2c6a70;color:#fff;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25);transition:transform .2s,background .2s}
@@ -784,9 +784,9 @@ html.a11y-gray body{filter:grayscale(1)}
 .gsec .gtile.gtile--out{opacity:0!important;transform:scale(.82)!important;transition:opacity .3s ease,transform .3s ease!important}
 .gsec .gtab{transition:color .25s}
 .gsec .ggrid{gap:10px!important;padding:0 10px!important}
-.gsec{padding:36px 0 56px!important}
+.gsec{padding:100px 0!important}
 .gsec__head{padding:0 12px}
-.gtabs{margin:44px 0 20px!important}
+.gtabs{margin:50px 0 20px!important}
 @media (max-width:700px){.gsec .ggrid{gap:8px!important;padding:0 8px!important}}
 
 /* ===== privacy policy (matches hotelsheldon.com/privacy-policy) ===== */
@@ -841,7 +841,7 @@ main .page.page--on:not([hidden]){display:block}
 
 /* ===== hero heights match hotelsheldon.com Hsui ===== */
 .hs-hero{height:auto;min-height:75vh} /* home slideshow */
-.at-hero,.phero,.phero--center,.ghero{height:auto;min-height:50vh} /* page heroes = accommodations 50vh */
+.at-hero,.phero,.phero--center,.ghero,.ct-hero{height:50vh;min-height:50vh} /* page heroes = accommodations 50vh */
 @media screen and (max-width:1024px){
   .hs-hero{min-height:68vh}
   .at-hero,.phero,.phero--center,.ghero{min-height:50vh}
@@ -960,7 +960,7 @@ h1.ot-title {
 </style>
 <style id="hero-match-accommodations">
 /* Attractions + Blog hero height = Accommodations hero height (value is measured by the script below) */
-html.acc-h .at-hero,html.acc-h .phero--center{height:var(--acc-hero-h)!important;min-height:0!important}
+html.acc-h .at-hero,html.acc-h .phero--center,.ct-hero,.ghero{height:50vh!important;min-height:50vh!important}
 </style>
 <style id="hero-white-text">
 /* Hero sections: white text; accommodations h1 keeps original text-shadow */
@@ -974,6 +974,218 @@ html.acc-h .at-hero,html.acc-h .phero--center{height:var(--acc-hero-h)!important
   text-shadow:rgba(0,0,0,.67) 1px 1px 10px!important;
 }
 </style>
+
+<style id="hero-image-fit">
+/* Exact match: Elementor page heroes — 50vh(=450px@900), 140% cover motion layer, bottom gradient overlay */
+.at-hero,
+.phero.phero--center,
+.ghero,
+.ct-hero,
+.hsui-358 .hsui-element.hsui-element-52f156a{
+  /* Original Elementor: --min-height: 50vh (scales on laptop/desktop) */
+  height:50vh!important;
+  min-height:50vh!important;
+  max-height:none!important;
+  overflow:hidden!important;
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-end!important;
+  align-items:stretch!important;
+  box-sizing:border-box!important;
+}
+@media (max-width:767px){
+  .at-hero,
+  .phero.phero--center,
+  .ghero,
+  .ct-hero,
+  .hsui-358 .hsui-element.hsui-element-52f156a{
+    height:50vh!important;
+    min-height:50vh!important;
+    max-height:none!important;
+  }
+}
+/* 140% cover image layers — full-res, no quality filters */
+.at-hero__img,
+.phero.phero--center .phero__img,
+.ct-hero__img{
+  position:absolute!important;
+  inset:auto!important;
+  left:0!important;
+  right:0!important;
+  width:100%!important;
+  height:140%!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  object-fit:cover!important;
+  object-position:50% 50%!important;
+  z-index:-2!important;
+  image-rendering:auto!important;
+  filter:none!important;
+  -webkit-filter:none!important;
+}
+/* Gallery bg on 140% layer, center */
+.ghero{
+  background-image:none!important;
+  background-color:#8a8f93!important;
+  padding:10px!important;
+}
+.ghero::after{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;right:0!important;
+  width:100%!important;
+  height:140%!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  z-index:-1!important;
+  pointer-events:none!important;
+  background:url(/assets/media/2024/07/Deluxe-Oceanfront-King_7074-1.webp) 50% 50%/cover no-repeat!important;
+  image-rendering:auto!important;
+  filter:none!important;
+}
+/* Accommodations: bottom-anchored crop like original */
+.hsui-358 .hsui-element.hsui-element-52f156a{
+  background-image:none!important;
+  padding:0!important;
+}
+.hsui-358 .hsui-element.hsui-element-52f156a::after{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;right:0!important;
+  width:100%!important;
+  height:140%!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background:url(/assets/media/2025/08/DSC02538.webp) 50% 100%/cover no-repeat!important;
+  image-rendering:auto!important;
+  filter:none!important;
+}
+.hsui-358 .hsui-element.hsui-element-52f156a::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  background-color:transparent!important;
+  background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;
+  opacity:.49!important;
+}
+.hsui-358 .hsui-element.hsui-element-52f156a > .hs-con-inner{position:relative!important;z-index:2!important;padding:0 0 60px!important;box-sizing:border-box!important;height:100%!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important}
+
+/* Attractions / Contact / Gallery overlays — exact Elementor gradient + opacity */
+.at-hero__veil,
+.ct-hero__veil{
+  position:absolute!important;
+  inset:0!important;
+  z-index:-1!important;
+  pointer-events:none!important;
+  background-color:transparent!important;
+  background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;
+  opacity:.43!important;
+}
+.ghero::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background-color:transparent!important;
+  background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;
+  opacity:.49!important;
+}
+.phero.phero--center .phero__veil{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background-color:transparent!important;
+  background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;
+  opacity:.49!important;
+}
+
+/* Title placement / type — match original */
+.at-hero{padding:0 0 39px!important}
+.at-hero__in{padding:0!important;gap:61px!important;justify-content:flex-end!important;align-items:center!important;height:100%!important;width:min(100%,1140px)!important;margin:0 auto!important;text-align:center!important}
+.at-hero__h{font-size:55px!important;line-height:77px!important;padding:0!important;margin:0!important;
+  text-shadow:rgba(0,0,0,.67) 1px 1px 10px!important}
+
+.ct-hero{padding:0 0 39px!important}
+.ct-hero__in{justify-content:flex-end!important;padding:0 20px!important;gap:64px!important;height:100%!important}
+.ct-hero__in .hs-btn{position:static!important;left:auto!important;top:auto!important;transform:none!important;margin:0 auto!important;padding:20px 25px!important;font-size:16px!important;line-height:16px!important;min-height:56px!important;box-sizing:border-box!important}
+.ct-hero__h{font-size:55px!important;line-height:77px!important;padding:0!important;margin:0!important;
+  text-shadow:rgba(0,0,0,.67) 1px 1px 10px!important}
+
+.ghero__title{padding:0!important;margin:0 auto 90px!important;font-size:55px!important;line-height:77px!important;
+  text-shadow:rgba(0,0,0,.67) 1px 1px 10px!important}
+
+.phero.phero--center .phero__h{font-size:55px!important;line-height:77px!important;padding:0 0 100px!important;margin:0!important;
+  text-shadow:rgba(0,0,0,.67) 1px 1px 10px!important}
+.phero.phero--center .phero__in{padding:0!important;align-items:flex-end!important;justify-content:center!important}
+</style>
+<style id="hero-fit-z">
+.at-hero__in,.ct-hero__in,.ghero__title,.phero.phero--center .phero__in,
+.hsui-358 .hsui-element-52f156a > .hs-con-inner{position:relative!important;z-index:2!important}
+.ct-hero::before{z-index:1!important;
+  background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;
+  background-color:transparent!important;opacity:.43!important}
+.ct-hero__img,.phero__img,.hsui-358 .hsui-element-52f156a::after{image-rendering:auto!important;filter:none!important;-webkit-filter:none!important}
+</style>
+
+<style id="hero-contrast-fix">
+/* Attractions + Gallery heroes: vivid contrast + original motion-layer crop */
+.at-hero{background:transparent!important}
+.at-hero__img{
+  position:absolute!important;
+  top:-28px!important;
+  right:0!important;
+  bottom:auto!important;
+  left:0!important;
+  width:100%!important;
+  height:140%!important;
+  max-height:none!important;
+  transform:none!important;
+  object-fit:cover!important;
+  object-position:50% 50%!important;
+  z-index:-2!important;
+  filter:brightness(1.08) contrast(1.06) saturate(1.1)!important;
+  -webkit-filter:brightness(1.08) contrast(1.06) saturate(1.1)!important;
+  image-rendering:auto!important;
+}
+.at-hero__veil{
+  z-index:-1!important;
+  background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;
+  background-color:transparent!important;
+  opacity:.28!important;
+}
+.ghero{background-color:transparent!important;background-image:none!important}
+.ghero::after{
+  content:""!important;
+  position:absolute!important;
+  top:-78px!important;
+  right:0!important;
+  bottom:auto!important;
+  left:0!important;
+  width:100%!important;
+  height:140%!important;
+  transform:none!important;
+  z-index:-1!important;
+  pointer-events:none!important;
+  background:url(/assets/media/2024/07/Deluxe-Oceanfront-King_7074-1.webp) 50% 50%/cover no-repeat!important;
+  filter:brightness(1.14) contrast(1.06) saturate(1.1)!important;
+  -webkit-filter:brightness(1.14) contrast(1.06) saturate(1.1)!important;
+}
+.ghero::before{
+  background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;
+  background-color:transparent!important;
+  opacity:.25!important;
+}
+</style>
+
+
+
 <style id="acc-card-white-border">
 /* Accommodations: image cards get a white border */
 .hsui-358 .hsui-element.hsui-element-0c06f00,
@@ -1039,11 +1251,11 @@ footer.site-footer img,
 .hs-gal::before{background:linear-gradient(#fff 0%,rgba(255,255,255,.7) 100%)!important}
 .hs-gal .hs-sec__fade{background:linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,.65) 100%)!important}
 /* Lighter hero veils (text stays readable via text-shadow) */
-.at-hero__veil{background:rgba(0,0,0,.26)!important}
-.ghero::before{background:rgba(0,0,0,.3)!important}
-.phero__veil{background:linear-gradient(180deg,rgba(10,50,52,.28),rgba(10,50,52,.52))!important}
-.phero--center .phero__veil{background:linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,.16) 55%,rgba(0,0,0,.42) 100%)!important}
-.ct-hero::after,.ct-hero .ct-hero__veil{opacity:.85}
+.at-hero__veil{background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;background-color:transparent!important;opacity:.28!important}
+.ghero::before{background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;background-color:transparent!important;opacity:.25!important}
+.phero__veil{background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;background-color:transparent!important;opacity:.49!important}
+.phero--center .phero__veil{background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;background-color:transparent!important;opacity:.49!important}
+.ct-hero::after{display:none!important}.ct-hero .ct-hero__veil{background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;background-color:transparent!important;opacity:.43!important}
 /* Soften Hsui dark overlays on photo containers */
 .hsui-358 .e-con.hs-parent,
 .hsui-397 .e-con.hs-parent,
