@@ -24,17 +24,17 @@ PAGES = [
 
 # Remote CSS required to keep existing page layouts after class rename
 REMOTE_CSS = {
-    "frontend.css": "https://hotelsheldon.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.3.6",
-    "widget-heading.css": "https://hotelsheldon.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.3.6",
-    "widget-image.css": "https://hotelsheldon.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.3.6",
-    "widget-icon-list.css": "https://hotelsheldon.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=4.3.6",
-    "widget-form.css": "https://hotelsheldon.com/wp-content/plugins/elementor-pro/assets/css/widget-form.min.css?ver=4.3.3",
-    "kit.css": "https://hotelsheldon.com/wp-content/uploads/elementor/css/post-5.css?ver=1793887506",
-    "page-acc.css": "https://hotelsheldon.com/wp-content/uploads/elementor/css/post-358.css?ver=1793887882",
-    "fade-in-up.css": "https://hotelsheldon.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css?ver=4.3.6",
-    "fade-in.css": "https://hotelsheldon.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=4.3.6",
-    "fade-in-right.css": "https://hotelsheldon.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInRight.min.css?ver=4.3.6",
-    "motion-fx.css": "https://hotelsheldon.com/wp-content/plugins/elementor-pro/assets/css/modules/motion-fx.min.css?ver=4.3.3",
+    "frontend.css": "LOCALIZED",
+    "widget-heading.css": "LOCALIZED",
+    "widget-image.css": "LOCALIZED",
+    "widget-icon-list.css": "LOCALIZED",
+    "widget-form.css": "LOCALIZED",
+    "kit.css": "LOCALIZED",
+    "page-acc.css": "LOCALIZED",
+    "fade-in-up.css": "LOCALIZED",
+    "fade-in.css": "LOCALIZED",
+    "fade-in-right.css": "LOCALIZED",
+    "motion-fx.css": "LOCALIZED",
 }
 
 LAYOUT_LINKS = "\n".join(
