@@ -117,7 +117,7 @@ p{margin:0 0 1.1em}
 .hs-hero__logo{width:40%;height:70px;max-width:100%;margin:0;padding:0 0 10px;object-fit:contain;object-position:center center}
 .hs-hero__tag{margin:0;padding:0 0 20px;color:#fff;font-family:var(--ff-h);font-size:17px;font-weight:700;
   line-height:17px;text-transform:uppercase;text-align:center}
-/* Availability bar — Elementor 265a217 (780px card, 25% cols, Flatpickr-like fields) */
+/* Availability bar — Hsui 265a217 (780px card, 25% cols, Flatpickr-like fields) */
 .avail-slot{width:780px;max-width:780px;align-self:center;z-index:1;box-sizing:border-box}
 .avail{width:100%;margin:0 0 -6%;background:#fff;padding:12px 35px 15px;
   box-shadow:0 2px 10px 6px rgba(0,0,0,.1);border-radius:0;box-sizing:border-box}
@@ -206,7 +206,15 @@ p{margin:0 0 1.1em}
 .hs-gal__mark{display:block;width:450px;max-width:100%;margin:3px auto 20px}
 .hs-gal .hs-h{line-height:29px}
 .hs-gal .hs-p{margin-top:34px}
-.hs-gal .hs-btn{margin-bottom:20px}
+.hs-gal .hs-in{z-index:2}
+.hs-gal .hs-btn{
+  /* Match original Elementor gallery CTA: padding 20px 25px (from .hs-btn), margin-bottom 20px */
+  position:relative;z-index:3;
+  margin:0 0 20px;
+  padding:20px 25px;
+  display:inline-flex;
+}
+.hs-gal .hs-car{margin-top:0;z-index:1}
 
 .hs-car{position:relative;padding-inline:30px}
 .hs-car__view{overflow:hidden;padding-block:10px;margin-block:-10px}
@@ -573,6 +581,7 @@ section[id^="page-"]{scroll-margin-top:90px}
   .hs-gal__mark{margin-bottom:11px}
   .hs-gal .hs-h{font-size:25px;text-align:left}
   .hs-gal .hs-p{margin-top:20px;text-align:left}
+  .hs-gal .hs-btn{padding:15px 20px;margin-bottom:20px}
   .hs-car__item{flex-basis:100%}
   .foot{padding-top:120px}
   .foot__grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:24px 0;padding-bottom:60px}
@@ -876,7 +885,7 @@ html{scroll-behavior:smooth}
 main .page[hidden]{display:none!important}
 main .page.page--on:not([hidden]){display:block}
 
-/* ===== hero heights match hotelsheldon.com Elementor ===== */
+/* ===== hero heights match hotelsheldon.com Hsui ===== */
 .hs-hero{height:auto;min-height:75vh} /* home slideshow */
 .at-hero,.phero,.phero--center,.ghero{height:auto;min-height:50vh} /* page heroes = accommodations 50vh */
 @media screen and (max-width:1024px){
@@ -884,7 +893,7 @@ main .page.page--on:not([hidden]){display:block}
   .at-hero,.phero,.phero--center,.ghero{min-height:50vh}
   .head__in{max-width:100%;width:100%;padding-inline:20px}
   .hs-hero__logo{width:66%;height:50px}
-  /* Elementor tablet: side 8%, bottom -10% of parent width */
+  /* Hsui tablet: side 8%, bottom -10% of parent width */
   .avail-slot{width:auto;max-width:none;align-self:stretch;margin:0 8% -10%}
   .avail{margin:0;padding:10px}
 }
@@ -899,102 +908,17 @@ main .page.page--on:not([hidden]){display:block}
 </style>
 
 
-<!-- Elementor styles copied from accommodations.html -->
-<link rel='stylesheet' id='elementor-frontend-css' href='https://hotelsheldon.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.3.6' media='all' />
-<link rel='stylesheet' id='widget-heading-css' href='https://hotelsheldon.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.3.6' media='all' />
-<link rel='stylesheet' id='widget-image-css' href='https://hotelsheldon.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.3.6' media='all' />
-<link rel='stylesheet' id='widget-nav-menu-css' href='https://hotelsheldon.com/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=4.3.3' media='all' />
-<link rel='stylesheet' id='e-sticky-css' href='https://hotelsheldon.com/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=4.3.3' media='all' />
-<link rel='stylesheet' id='widget-icon-list-css' href='https://hotelsheldon.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=4.3.6' media='all' />
-<link rel='stylesheet' id='widget-form-css' href='https://hotelsheldon.com/wp-content/plugins/elementor-pro/assets/css/widget-form.min.css?ver=4.3.3' media='all' />
-<link rel='stylesheet' id='e-animation-fadeInRight-css' href='https://hotelsheldon.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInRight.min.css?ver=4.3.6' media='all' />
-<link rel='stylesheet' id='elementor-post-5-css' href='https://hotelsheldon.com/wp-content/uploads/elementor/css/post-5.css?ver=1793887506' media='all' />
-<link data-minify="1" rel='stylesheet' id='font-awesome-5-all-css' href='https://hotelsheldon.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=1793890500' media='all' />
-<link rel='stylesheet' id='font-awesome-4-shim-css' href='https://hotelsheldon.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=4.3.6' media='all' />
-<link rel='stylesheet' id='e-motion-fx-css' href='https://hotelsheldon.com/wp-content/plugins/elementor-pro/assets/css/modules/motion-fx.min.css?ver=4.3.3' media='all' />
-<link rel='stylesheet' id='e-animation-fadeInUp-css' href='https://hotelsheldon.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css?ver=4.3.6' media='all' />
-<link rel='stylesheet' id='e-animation-fadeIn-css' href='https://hotelsheldon.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css?ver=4.3.6' media='all' />
-<link rel='stylesheet' id='elementor-post-358-css' href='https://hotelsheldon.com/wp-content/cache/background-css/hotelsheldon.com/wp-content/uploads/elementor/css/post-358.css?ver=1793887882&wpr_t=1794086616' media='all' />
-<link rel='stylesheet' id='elementor-post-257-css' href='https://hotelsheldon.com/wp-content/cache/background-css/hotelsheldon.com/wp-content/uploads/elementor/css/post-257.css?ver=1793887506&wpr_t=1794086616' media='all' />
-<style id="elementor-pro-custom-fonts-inline-css">
-@font-face {
-	font-family: 'Playfair Display';
-	font-style: normal;
-	font-weight: 400;
-	font-display: auto;
-	src: url('https://hotelsheldon.com/wp-content/uploads/2026/09/PlayfairDisplay-Regular.ttf') format('truetype');
-}
-@font-face {
-	font-family: 'Playfair Display';
-	font-style: normal;
-	font-weight: 500;
-	font-display: auto;
-	src: url('https://hotelsheldon.com/wp-content/uploads/2026/09/PlayfairDisplay-Medium.ttf') format('truetype');
-}
-@font-face {
-	font-family: 'Playfair Display';
-	font-style: normal;
-	font-weight: 600;
-	font-display: auto;
-	src: url('https://hotelsheldon.com/wp-content/uploads/2026/09/PlayfairDisplay-SemiBold.ttf') format('truetype');
-}
-@font-face {
-	font-family: 'Playfair Display';
-	font-style: normal;
-	font-weight: 700;
-	font-display: auto;
-	src: url('https://hotelsheldon.com/wp-content/uploads/2026/09/PlayfairDisplay-Bold.ttf') format('truetype');
-}
-@font-face {
-	font-family: 'Playfair Display';
-	font-style: normal;
-	font-weight: 800;
-	font-display: auto;
-	src: url('https://hotelsheldon.com/wp-content/uploads/2026/09/PlayfairDisplay-ExtraBold.ttf') format('truetype');
-}
-@font-face {
-	font-family: 'Playfair Display';
-	font-style: normal;
-	font-weight: 900;
-	font-display: auto;
-	src: url('https://hotelsheldon.com/wp-content/uploads/2026/09/PlayfairDisplay-Black.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'Ovo';
-	font-style: normal;
-	font-weight: 400;
-	font-display: auto;
-	src: url('https://hotelsheldon.com/wp-content/uploads/2026/09/Ovo-Regular.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'Caudex';
-	font-style: normal;
-	font-weight: 400;
-	font-display: auto;
-	src: url('https://hotelsheldon.com/wp-content/uploads/2026/09/Caudex-Regular.ttf') format('truetype');
-}
-@font-face {
-	font-family: 'Caudex';
-	font-style: normal;
-	font-weight: 700;
-	font-display: auto;
-	src: url('https://hotelsheldon.com/wp-content/uploads/2026/09/Caudex-Bold.ttf') format('truetype');
-}
-
-/*# sourceURL=elementor-pro-custom-fonts-inline-css */
-</style>
+<!-- Hsui styles copied from accommodations.html -->
 <style id="wp-custom-css">
-button.elementor-button.elementor-size-sm {
+button.hsui-button.hsui-size-sm {
     border-color: #815e3b;
     border-width: 1px !important;
 }
 
-#content > div > div > section.elementor-section.elementor-top-section.elementor-element.elementor-element-7f6ec37.elementor-section-height-min-height.elementor-section-boxed.elementor-section-height-default.elementor-section-items-middle.elementor-motion-effects-element.elementor-motion-effects-element-type-background > div.elementor-container.elementor-column-gap-default > div > div > div.elementor-element.elementor-element-f419bc0.elementor-button-align-stretch.elementor-widget.elementor-widget-form > div {
+#content > div > div > section.hsui-section.hsui-top-section.hsui-element.hsui-element-7f6ec37.hsui-section-height-min-height.hsui-section-boxed.hsui-section-height-default.hsui-section-items-middle.hsui-motion-effects-element.hsui-motion-effects-element-type-background > div.hsui-container.hsui-column-gap-default > div > div > div.hsui-element.hsui-element-f419bc0.hsui-button-align-stretch.hsui-widget.hsui-widget-form > div {
     border: 1px solid #0000003d;
 }
-.elementor-image-carousel-wrapper .elementor-image-carousel .swiper-slide-image {
+.hsui-image-carousel-wrapper .hsui-image-carousel .swiper-slide-image {
     box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 25%);
 }
 .ot-powered-by {
@@ -1004,13 +928,13 @@ button.elementor-button.elementor-size-sm {
 h1.ot-title {
     display: none !important;
 }
-.elementor-swiper-button.elementor-swiper-button-prev, .elementor-swiper-button.elementor-swiper-button-next {
+.hsui-swiper-button.hsui-swiper-button-prev, .hsui-swiper-button.hsui-swiper-button-next {
     background-color: #106C72 !important;
 }
 
 /* Gallery Page Custom Codes */
 
-#content > div > div > div.elementor-element.elementor-element-11d3d9f.e-flex.e-con-boxed.e-con.e-parent > div > div.elementor-element.elementor-element-bfb68b8.elementor-widget.elementor-widget-shortcode > div > div > div > div.col-lg-12.col-md-12.col-xs-12.text-center {
+#content > div > div > div.hsui-element.hsui-element-11d3d9f.hs-flex.hs-con-boxed.e-con.hs-parent > div > div.hsui-element.hsui-element-bfb68b8.hsui-widget.hsui-widget-shortcode > div > div > div > div.col-lg-12.col-md-12.col-xs-12.text-center {
     margin-bottom: 20px !important;
 }
 
@@ -1027,7 +951,7 @@ h1.ot-title {
 /* Homepage hero section height media query */
 
 @media screen and (max-width: 1024px) { 
-    .elementor-6011 .elementor-element.elementor-element-fe91e23 {
+    .hsui-6011 .hsui-element.hsui-element-fe91e23 {
         /* Adjust properties as needed */
         min-height: 68vh;
     }
@@ -1035,17 +959,15 @@ h1.ot-title {
 
 
 </style>
-<style id="wpr-lazyload-bg-exclusion">.elementor-358 .elementor-element.elementor-element-52f156a:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-52f156a > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-7d27332a-5643-4ad9-b7a4-fe0e489f41e7: url('https://hotelsheldon.com/wp-content/uploads/2025/08/DSC02538.webp');}.elementor-358 .elementor-element.elementor-element-67ecea9:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-67ecea9 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-cf3d6b1d-a54a-4f24-8a4c-f4327d6c1dcb: url('https://hotelsheldon.com/wp-content/uploads/2024/06/oceanfront_view_double_7141_gallery66306bf0e1272.webp');}.elementor-358 .elementor-element.elementor-element-1e87f54:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-1e87f54 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-d712409b-b357-496f-9114-7f124164d3cc: url('https://hotelsheldon.com/wp-content/uploads/2025/08/DSC02538.webp');}</style>
-<style id="wpr-lazyload-bg-nostyle">.elementor-8357 .elementor-element.elementor-element-0451483:not(.elementor-motion-effects-element-type-background), .elementor-8357 .elementor-element.elementor-element-0451483 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-e1af002e-36da-4873-860f-12904bfd8715: url('https://hotelsheldon.com/wp-content/uploads/2024/07/20140206_Sheldon_Hotel-1.webp');}.elementor-358 .elementor-element.elementor-element-59d920d:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-59d920d > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-27866a64-1033-49cb-9391-1fc49d5a846d: url('https://hotelsheldon.com/wp-content/uploads/2024/06/balcony_oceanfront_king_7213_gallery66306aafc66a.webp');}.elementor-358 .elementor-element.elementor-element-0f9f2ce:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-0f9f2ce > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-7b270ae4-8f50-45d9-ba2c-16ee1db902c1: url('https://hotelsheldon.com/wp-content/uploads/2025/08/DSC02774.webp');}.elementor-358 .elementor-element.elementor-element-b24d007:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-b24d007 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-444ee9f0-2005-4cfb-9472-4cd93cdf6bf4: url('https://hotelsheldon.com/wp-content/uploads/2024/06/deluxe_oceanfront_king_7074_gallery66306b5738c08.webp');}.elementor-358 .elementor-element.elementor-element-0f17a4a:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-0f17a4a > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-9d87bb92-84c1-4d46-968c-b1cdadd9621b: url('https://hotelsheldon.com/wp-content/uploads/2025/08/DSC02373.webp');}.elementor-358 .elementor-element.elementor-element-47a0ea4:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-47a0ea4 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-b7be1360-cb29-4dc1-9a1a-593351c2302f: url('https://hotelsheldon.com/wp-content/uploads/2024/06/oceanfront_view_king_7186_featured66306c9892ccf.webp');}.elementor-358 .elementor-element.elementor-element-39cc321:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-39cc321 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-48013302-af44-4ad5-a686-3410b28607c6: url('https://hotelsheldon.com/wp-content/uploads/2024/06/oceanfront_view_king_7186_featured66306c9892ccf.webp');}.elementor-358 .elementor-element.elementor-element-e465340:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-e465340 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-3cf9d0f5-30ea-4516-82b0-e02639a2a980: url('https://hotelsheldon.com/wp-content/uploads/2024/06/oceanfront_view_king_7186_featured66306c9892ccf.webp');}.elementor-358 .elementor-element.elementor-element-8e74316:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-8e74316 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-95aecc5e-81b7-4835-a784-14011343b95d: url('https://hotelsheldon.com/wp-content/uploads/2024/07/Oceanfront-View-Double_7163.webp');}.elementor-358 .elementor-element.elementor-element-539bace:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-539bace > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-4b3b1f60-9207-4567-b7b5-48951ec309b2: url('https://hotelsheldon.com/wp-content/uploads/2024/06/intercoastal_view_king_7292_featured66306dd976da.webp');}.elementor-358 .elementor-element.elementor-element-87ed7e0:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-87ed7e0 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-d5f171a2-068d-45dc-bd0c-6689dfaedc1b: url('https://hotelsheldon.com/wp-content/uploads/2025/06/25-IMG_8383.webp');}.elementor-358 .elementor-element.elementor-element-26c3155:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-26c3155 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-7578331c-2f17-4f02-bcf2-29dbd4e43fe8: url('https://hotelsheldon.com/wp-content/uploads/2024/06/intercoastal_view_king_7292_featured66306dd976da.webp');}.elementor-358 .elementor-element.elementor-element-0c06f00:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-0c06f00 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-32951678-187a-41ac-a929-48c85253070f: url('https://hotelsheldon.com/wp-content/uploads/2024/07/Intercoastal-Town-View-Double_7114.webp');}.elementor-358 .elementor-element.elementor-element-5b1f952:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-5b1f952 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-be03a6b8-640b-4466-a038-e258fd6703ad: url('https://hotelsheldon.com/wp-content/uploads/2024/06/partial_ocean_view_king_7191_featured66306d4deca.webp');}.elementor-358 .elementor-element.elementor-element-29dfece:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-29dfece > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-b1c97e67-36c6-4fae-98d3-79f7a96c30ce: url('https://hotelsheldon.com/wp-content/uploads/2025/08/DSC02430.webp');}.elementor-358 .elementor-element.elementor-element-840ae7c:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-840ae7c > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-0d9a203a-5384-4b42-97c7-6f5e13a53b19: url('https://hotelsheldon.com/wp-content/uploads/2024/06/partial_ocean_view_double_7110_featured66306cfa3.webp');}.elementor-358 .elementor-element.elementor-element-455b801:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-455b801 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-e9237ccd-b7d8-42e0-8bb1-81bdd36cfb86: url('https://hotelsheldon.com/wp-content/uploads/2024/06/partial_ocean_view_king_7191_featured66306d4deca.webp');}.elementor-358 .elementor-element.elementor-element-827ff98:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-827ff98 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-1de3ec51-dc66-465e-b5db-16ee803539c6: url('https://hotelsheldon.com/wp-content/uploads/2025/10/DSC02538-1.webp');}.elementor-358 .elementor-element.elementor-element-0908149:not(.elementor-motion-effects-element-type-background), .elementor-358 .elementor-element.elementor-element-0908149 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-cd2cccf6-79f7-4c57-a283-1db87095ba41: url('https://hotelsheldon.com/wp-content/uploads/2024/07/Exterior6.webp');}.elementor-257 .elementor-element.elementor-element-a4c58cf:not(.elementor-motion-effects-element-type-background), .elementor-257 .elementor-element.elementor-element-a4c58cf > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-9bb1ebd2-0fad-4437-b39f-d68787d329de: url('https://hotelsheldon.com/wp-content/uploads/2024/07/Exterior1.webp');}.rll-youtube-player .play{--wpr-bg-62316188-f25e-4abc-8925-027cc94f1b96: url('https://hotelsheldon.com/wp-content/plugins/wp-rocket/assets/img/youtube.png');}</style>
 <style id="hs-hero-fix">
 /* Match hotelsheldon.com/accommodations hero title exactly */
-.elementor-358 .elementor-element.elementor-element-52f156a{
+.hsui-358 .hsui-element.hsui-element-52f156a{
   justify-content:flex-end!important;
   align-items:stretch!important;
   text-align:center!important;
   min-height:50vh!important;
 }
-.elementor-358 .elementor-element.elementor-element-52f156a>.e-con-inner{
+.hsui-358 .hsui-element.hsui-element-52f156a>.hs-con-inner{
   display:flex!important;
   flex-direction:column!important;
   justify-content:flex-end!important;
@@ -1053,19 +975,19 @@ h1.ot-title {
   text-align:center!important;
   padding-bottom:60px!important;
 }
-.elementor-358 .elementor-element.elementor-element-9b6ae67{
+.hsui-358 .hsui-element.hsui-element-9b6ae67{
   width:100%!important;
   max-width:100%!important;
   text-align:center!important;
   margin:0 auto!important;
   align-self:stretch!important;
 }
-.elementor-358 .elementor-element.elementor-element-9b6ae67 .elementor-widget-container{
+.hsui-358 .hsui-element.hsui-element-9b6ae67 .hsui-widget-container{
   text-align:center!important;
   margin:0!important;
   padding:0 0 10px!important;
 }
-.elementor-358 .elementor-element.elementor-element-9b6ae67 h1.elementor-heading-title{
+.hsui-358 .hsui-element.hsui-element-9b6ae67 h1.hsui-heading-title{
   font-family:"Playfair Display",Georgia,"Times New Roman",serif!important;
   font-weight:700!important;
   font-size:55px!important;
@@ -1079,36 +1001,11 @@ h1.ot-title {
   display:block!important;
 }
 @media (max-width:767px){
-  .elementor-358 .elementor-element.elementor-element-9b6ae67 h1.elementor-heading-title{
+  .hsui-358 .hsui-element.hsui-element-9b6ae67 h1.hsui-heading-title{
     font-size:30px!important;
     line-height:1.4em!important;
   }
 }
-</style>
-<style id="hs-elementor-embed">
-/* Elementor content embedded in the Hotel Sheldon static pages */
-.hs-elementor .elementor-invisible{visibility:visible!important;opacity:1!important}
-.hs-elementor{position:relative;z-index:1}
-</style>
-<style id="footer-white-text">
-/* Footer: all text white */
-footer.elementor-location-footer{background:var(--teal,#106C72)}
-footer.elementor-location-footer,
-footer.elementor-location-footer :where(h1,h2,h3,h4,h5,h6,p,span,div,li,label,a,button),
-footer.elementor-location-footer a:hover,
-footer.elementor-location-footer a:focus-visible{color:#fff!important}
-footer.elementor-location-footer svg,
-footer.elementor-location-footer svg path{fill:#fff!important}
-footer.elementor-location-footer .elementor-button{border-color:#fff}
-/* hover effect only on the Sign Up button: all other footer links stay unchanged on hover */
-footer.elementor-location-footer a,
-footer.elementor-location-footer a:hover,
-footer.elementor-location-footer a:focus,
-footer.elementor-location-footer a:hover .elementor-icon-list-text,
-footer.elementor-location-footer a:hover .elementor-icon-list-icon,
-footer.elementor-location-footer a:hover svg{opacity:1!important;color:#fff!important;fill:#fff!important;transform:none!important;filter:none!important;text-shadow:none!important;transition:none!important}
-footer.elementor-location-footer .elementor-icon-list-item:hover,
-footer.elementor-location-footer .elementor-icon-list-item:hover a{opacity:1!important;color:#fff!important}
 </style>
 <style id="hero-match-accommodations">
 /* Attractions + Blog hero height = Accommodations hero height (value is measured by the script below) */
@@ -1119,24 +1016,24 @@ html.acc-h .at-hero,html.acc-h .phero--center{height:var(--acc-hero-h)!important
 .hs-hero__tag,.hs-hero h1,.hs-hero h2,.hs-hero p,
 .ct-hero__h,.phero__h,.phero__sub,.phero__in{color:#fff!important;text-shadow:none!important}
 .at-hero__h,.ghero__title{color:#fff!important;text-shadow:rgba(0,0,0,.67) 1px 1px 10px!important}
-.elementor-358 .elementor-element-52f156a :where(h2,h3,p,span){color:#fff!important}
-.elementor-358 .elementor-element-52f156a h1,
-.elementor-358 .elementor-element-52f156a h1.elementor-heading-title{
+.hsui-358 .hsui-element-52f156a :where(h2,h3,p,span){color:#fff!important}
+.hsui-358 .hsui-element-52f156a h1,
+.hsui-358 .hsui-element-52f156a h1.hsui-heading-title{
   color:#fff!important;
   text-shadow:rgba(0,0,0,.67) 1px 1px 10px!important;
 }
 </style>
 <style id="acc-card-white-border">
 /* Accommodations: image cards get a white border */
-.elementor-358 .elementor-element.elementor-element-0c06f00,
-.elementor-358 .elementor-element.elementor-element-0f17a4a,
-.elementor-358 .elementor-element.elementor-element-0f9f2ce,
-.elementor-358 .elementor-element.elementor-element-1e87f54,
-.elementor-358 .elementor-element.elementor-element-29dfece,
-.elementor-358 .elementor-element.elementor-element-39cc321,
-.elementor-358 .elementor-element.elementor-element-827ff98,
-.elementor-358 .elementor-element.elementor-element-87ed7e0,
-.elementor-358 .elementor-element.elementor-element-8e74316{border:6px solid #fff!important;box-sizing:border-box}
+.hsui-358 .hsui-element.hsui-element-0c06f00,
+.hsui-358 .hsui-element.hsui-element-0f17a4a,
+.hsui-358 .hsui-element.hsui-element-0f9f2ce,
+.hsui-358 .hsui-element.hsui-element-1e87f54,
+.hsui-358 .hsui-element.hsui-element-29dfece,
+.hsui-358 .hsui-element.hsui-element-39cc321,
+.hsui-358 .hsui-element.hsui-element-827ff98,
+.hsui-358 .hsui-element.hsui-element-87ed7e0,
+.hsui-358 .hsui-element.hsui-element-8e74316{border:6px solid #fff!important;box-sizing:border-box}
 </style>
 
 <style id="multipage-css">
@@ -1156,7 +1053,7 @@ main .page.page--on:not([hidden]),main .page{display:block}
 .hs-rooms__small,
 .hs-car__item img,
 .hs-attr__img,
-.elementor-background-slideshow__slide__image{
+.hsui-background-slideshow__slide__image{
   filter:none!important;
 }
 /* Hero veil exact: #00000075 @ 36% → transparent @ 63%, multiply */
@@ -1182,58 +1079,22 @@ main .page.page--on:not([hidden]),main .page{display:block}
 }
 </style>
 
-<style id="hs-footer-unify">
-/* Sitewide footer = Attractions footer (elementor-257) */
-footer.elementor-location-footer{background:var(--teal,#106C72)!important}
-.hs-elementor{margin-top:0;background:transparent}
-.elementor-257 .elementor-element.elementor-element-a4c58cf{
-  --display:flex;
-  --min-height:395px;
-  --justify-content:flex-end;
-  --align-items:flex-end;
-  --overlay-opacity:1!important;
-  background-color:#000!important;
-  background-image:url("https://hotelsheldon.com/wp-content/uploads/2024/07/Exterior1.webp")!important;
-  background-position:center center!important;
-  background-size:cover!important;
-}
-.elementor-257 .elementor-element.elementor-element-a4c58cf::before{
-  background-image:linear-gradient(180deg,#fff 10%,rgba(255,255,255,.2) 100%)!important;
-  opacity:1!important;
-}
-.elementor-257 .elementor-element.elementor-element-8c262d9{
-  --min-height:506px;
-  --overlay-opacity:1!important;
-  --padding-bottom:60px;
-}
-.elementor-257 .elementor-element.elementor-element-8c262d9::before{
-  background-image:linear-gradient(180deg,rgba(255,255,255,0) 0%,#106C72 70%)!important;
-  opacity:1!important;
-}
-@media (max-width:767px){
-  .elementor-257 .elementor-element.elementor-element-a4c58cf{--min-height:544px}
-}
-/* White runway into footer like Attractions .at-rooms → #fff */
-main#main{background:#fff}
-.page--home .hs-gal::after,
-.page--gallery .gsec::after,
-.page--blog .posts::after,
-.page--contact .ct-wrap::after,
-.page--accommodations::after,
-.page--privacy-policy .pp::after,
-.page--accessibility-statement .pp::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:72px;pointer-events:none;z-index:2;
-  background:linear-gradient(180deg,rgba(255,255,255,0),#fff);
-}
-.page--home .hs-gal,
-.page--gallery .gsec,
-.page--blog .posts,
-.page--contact .ct-wrap,
-.page--privacy-policy .pp,
-.page--accessibility-statement .pp{position:relative}
-.page--accommodations{position:relative}
+<link rel="stylesheet" href="/css/layout/frontend.css">
+<link rel="stylesheet" href="/css/layout/widget-heading.css">
+<link rel="stylesheet" href="/css/layout/widget-image.css">
+<link rel="stylesheet" href="/css/layout/widget-icon-list.css">
+<link rel="stylesheet" href="/css/layout/widget-form.css">
+<link rel="stylesheet" href="/css/layout/kit.css">
+<link rel="stylesheet" href="/css/layout/page-acc.css">
+<link rel="stylesheet" href="/css/layout/fade-in-up.css">
+<link rel="stylesheet" href="/css/layout/fade-in.css">
+<link rel="stylesheet" href="/css/layout/fade-in-right.css">
+<link rel="stylesheet" href="/css/layout/motion-fx.css">
+<link rel="stylesheet" href="/css/site-footer.css">
+<style id="hs-local-fonts">
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/PlayfairDisplay-Medium.ttf') format('truetype')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/PlayfairDisplay-SemiBold.ttf') format('truetype')}
 </style>
-
 </head>
 <body class="route-home">
 <div class="promo" id="promo"><a class="promo__link" href="https://hotels.cloudbeds.com/en/reservas/6rkVFi/" target="_blank" rel="noopener">Get up to 20% off Your Beachfront Stay! <u>Click Here</u></a></div>
@@ -1331,153 +1192,7 @@ main#main{background:#fff}
   </div>
 </div></section>
 </main>
-<div class="elementor-kit-5 hs-elementor">
-		<footer data-elementor-type="footer" data-elementor-id="257" class="elementor elementor-257 elementor-location-footer" data-elementor-post-type="elementor_library">
-			<div class="elementor-element elementor-element-a4c58cf e-con-full e-flex e-con e-parent" data-id="a4c58cf" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-		<div class="elementor-element elementor-element-8c262d9 e-flex e-con-boxed e-con e-child" data-id="8c262d9" data-element_type="container" data-e-type="container">
-					<div class="e-con-inner">
-		<div class="elementor-element elementor-element-85f1b17 e-con-full e-flex e-con e-child" data-id="85f1b17" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-75d040a elementor-widget elementor-widget-image" data-id="75d040a" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-																<a href="/home">
-							<img width="512" height="512" src="https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white.webp" class="attachment-large size-large wp-image-7368" alt="sheldon-logo-white" srcset="https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white.webp 512w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-300x300.webp 300w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-150x150.webp 150w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-270x270.webp 270w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-192x192.webp 192w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-180x180.webp 180w, https://hotelsheldon.com/wp-content/uploads/2022/07/cropped-sheldon-logo-white-32x32.webp 32w" sizes="(max-width: 512px) 100vw, 512px" />								</a>
-															</div>
-				</div>
-				<div class="elementor-element elementor-element-6f7ac98 elementor-widget elementor-widget-image" data-id="6f7ac98" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-															<img width="300" height="18" src="https://hotelsheldon.com/wp-content/uploads/2022/07/HotelSheldon_Logotype_White_0.5x.webp" class="attachment-large size-large wp-image-8638" alt="Hotel sheldon heading xs" />															</div>
-				</div>
-				<div class="elementor-element elementor-element-11f2e7d elementor-widget elementor-widget-heading" data-id="11f2e7d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<p class="elementor-heading-title elementor-size-default"><a href="https://maps.app.goo.gl/1KVfxk3YcLZJVvjR7" target="_blank">1000 North Surf Rd, Hollywood,  Florida US  33019</a></p>				</div>
-				</div>
-				</div>
-		<div class="elementor-element elementor-element-b7d0f32 e-con-full e-flex e-con e-child" data-id="b7d0f32" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-999d8bc elementor-align-start elementor-mobile-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="999d8bc" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-							<ul class="elementor-icon-list-items">
-							<li class="elementor-icon-list-item">
-											<a href="/accommodations">
-
-											<span class="elementor-icon-list-text">Accommodations</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="/attractions">
-
-											<span class="elementor-icon-list-text">Attractions</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="/contact">
-
-											<span class="elementor-icon-list-text">Contact</span>
-											</a>
-									</li>
-						</ul>
-						</div>
-				</div>
-		<div class="elementor-element elementor-element-145680b e-con-full e-flex e-con e-child" data-id="145680b" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-15e4908 elementor-icon-list--layout-inline elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="15e4908" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-							<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="tel:+19549226020" aria-label="phone number">
-
-												<span class="elementor-icon-list-icon">
-							<svg aria-hidden="true" class="e-font-icon-svg e-fas-phone-alt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg>						</span>
-										<span class="elementor-icon-list-text"></span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="mailto:reservations@hotelsheldon.com" aria-label="email address">
-
-												<span class="elementor-icon-list-icon">
-							<svg aria-hidden="true" class="e-font-icon-svg e-fas-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>						</span>
-										<span class="elementor-icon-list-text"></span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="https://www.facebook.com/HotelSheldonHollywood/" target="_blank" aria-label="facebook">
-
-												<span class="elementor-icon-list-icon">
-							<svg aria-hidden="true" class="e-font-icon-svg e-fab-facebook-square" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg>						</span>
-										<span class="elementor-icon-list-text"></span>
-											</a>
-									</li>
-						</ul>
-						</div>
-				</div>
-				</div>
-				</div>
-		<div class="elementor-element elementor-element-d1a5c3c e-con-full e-flex e-con e-child" data-id="d1a5c3c" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-a4c620b elementor-widget elementor-widget-heading" data-id="a4c620b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<h2 class="elementor-heading-title elementor-size-default">Stay In Touch</h2>				</div>
-				</div>
-				<div class="elementor-element elementor-element-fb65d2e elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="fb65d2e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;button_width&quot;:&quot;33&quot;,&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width_mobile&quot;:&quot;30&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
-				<div class="elementor-widget-container">
-							<form class="elementor-form" method="post" id="subscription_form_footer" name="New Form" aria-label="New Form">
-			<input type="hidden" name="post_id" value="257"/>
-			<input type="hidden" name="form_id" value="fb65d2e"/>
-			<input type="hidden" name="referer_title" value="Hollywood Beach Hotels - Hotel Sheldon" />
-
-							<input type="hidden" name="queried_id" value="8830"/>
-			
-			<div class="elementor-form-fields-wrapper elementor-labels-">
-								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-66 elementor-sm-70 elementor-field-required">
-												<label for="form-field-email" class="elementor-field-label elementor-screen-only">
-								Email							</label>
-														<input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-xs  elementor-field-textual" placeholder="Email" required="required">
-											</div>
-								<div class="elementor-field-type-text">
-					<input size="1" type="text" name="form_fields[field_cee7060]" id="form-field-field_cee7060" class="elementor-field elementor-size-xs " style="display:none !important;">				</div>
-								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-33 e-form__buttons elementor-sm-30">
-					<button class="elementor-button elementor-size-xs" type="submit" id="signup-button">
-						<span class="elementor-button-content-wrapper">
-																						<span class="elementor-button-text">Sign Up</span>
-													</span>
-					</button>
-				</div>
-			</div>
-		</form>
-						</div>
-				</div>
-				<div class="elementor-element elementor-element-274262f elementor-icon-list--layout-inline elementor-align-end elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="274262f" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
-				<div class="elementor-widget-container">
-							<ul class="elementor-icon-list-items elementor-inline-items">
-							<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="/privacy-policy">
-
-											<span class="elementor-icon-list-text">Privacy Policy</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="/accessibility-statement">
-
-											<span class="elementor-icon-list-text">Accessibility Statement</span>
-											</a>
-									</li>
-						</ul>
-						</div>
-				</div>
-				</div>
-					</div>
-				</div>
-				</div>
-		<div class="elementor-element elementor-element-b61fc78 e-flex e-con-boxed e-con e-parent" data-id="b61fc78" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-					<div class="e-con-inner">
-		<div class="elementor-element elementor-element-a6fade5 e-con-full e-flex e-con e-child" data-id="a6fade5" data-element_type="container" data-e-type="container">
-				<div class="elementor-element elementor-element-cc5b05b elementor-widget elementor-widget-heading" data-id="cc5b05b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-heading-title elementor-size-default">© 2026 - Hotel Sheldon. All rights reserved, <a href="https://razibmarketing.com/" target="_blank">Hotel Website Design by Razib Marketing</a></div>				</div>
-				</div>
-				</div>
-					</div>
-				</div>
-				</footer>
-</div>
-
+<div id="site-footer-root"></div>
 <div class="mbar" id="mbar"><a class="hs-btn" href="https://hotels.cloudbeds.com/en/reservas/6rkVFi/" target="_blank" rel="noopener"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.490 64 0 85.490 0 112v352c0 26.510 21.490 48 48 48h352c26.510 0 48-21.490 48-48V112c0-26.510-21.490-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.650L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.970.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.970z"/></svg>Book Now</a></div>
 
 <div class="modal" id="offer" role="dialog" aria-modal="true" aria-labelledby="offer-h" hidden>
@@ -1951,13 +1666,13 @@ window.__EMAIL__="reservations@hotelsheldon.com";
   function sync(){
     try{
       var sec=document.getElementById('page-accommodations');
-      var hero=sec&&sec.querySelector('.elementor-element-52f156a');
+      var hero=sec&&sec.querySelector('.hsui-element-52f156a');
       if(!hero)return;
       var wasHidden=sec.hasAttribute('hidden'),old=sec.getAttribute('style');
       if(wasHidden){sec.removeAttribute('hidden');sec.style.cssText='display:block;visibility:hidden;position:absolute;left:0;right:0;top:0;pointer-events:none';}
       var h=hero.getBoundingClientRect().height;
       if(wasHidden){sec.setAttribute('hidden','');if(old===null)sec.removeAttribute('style');else sec.setAttribute('style',old);}
-      /* ignore the unstyled value (Elementor CSS not loaded yet / offline) */
+      /* ignore the unstyled value (Hsui CSS not loaded yet / offline) */
       if(h>150){root.style.setProperty('--acc-hero-h',h+'px');root.classList.add('acc-h');}
       else{root.classList.remove('acc-h');}
     }catch(e){}
@@ -1975,11 +1690,11 @@ window.__EMAIL__="reservations@hotelsheldon.com";
   var props=['font-family','font-size','font-weight','font-style','line-height','letter-spacing','text-transform','text-decoration-line'];
   function sync(){
     try{
-      var ref=document.querySelector('footer.elementor-location-footer .elementor-element-11f2e7d a')||
-              document.querySelector('footer.elementor-location-footer .elementor-element-11f2e7d p');
+      var ref=document.querySelector('footer.site-footer .hsui-element-11f2e7d a')||
+              document.querySelector('footer.site-footer .hsui-element-11f2e7d p');
       if(!ref)return;
       var cs=getComputedStyle(ref);
-      var targets=document.querySelectorAll('footer.elementor-location-footer .elementor-element-999d8bc .elementor-icon-list-text, footer.elementor-location-footer .elementor-element-999d8bc a');
+      var targets=document.querySelectorAll('footer.site-footer .hsui-element-999d8bc .hsui-icon-list-text, footer.site-footer .hsui-element-999d8bc a');
       targets.forEach(function(t){
         props.forEach(function(k){
           if(k==='text-decoration-line')return;
@@ -2079,5 +1794,6 @@ window.__EMAIL__="reservations@hotelsheldon.com";
 })();
 </script>
 
+<script src="/js/site-footer.js" defer></script>
 </body>
 </html>
