@@ -1194,13 +1194,13 @@ html.acc-h .at-hero,html.acc-h .phero--center,.ct-hero,.ghero{height:50vh!import
   z-index:-1!important;
   pointer-events:none!important;
   background:url(/assets/media/2024/07/Deluxe-Oceanfront-King_7074-1.webp) 50% 50%/cover no-repeat!important;
-  filter:brightness(1.14) contrast(1.06) saturate(1.1)!important;
-  -webkit-filter:brightness(1.14) contrast(1.06) saturate(1.1)!important;
+  filter:none!important;
+  -webkit-filter:none!important;
 }
 .ghero::before{
   background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;
   background-color:transparent!important;
-  opacity:.25!important;
+  opacity:.49!important;
 }
 </style>
 
@@ -1317,7 +1317,6 @@ main .page.page--on:not([hidden]),main .page{display:block}
 .hs-rooms__small,
 .hs-car__item img,
 .hs-attr__img,
-.gtile img,
 .at-media img,
 .at-media .hs-frame,
 .at-hero__img,
@@ -1353,7 +1352,7 @@ footer.site-footer img,
 .hs-gal .hs-sec__fade{background:linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,.65) 100%)!important}
 /* Lighter hero veils (text stays readable via text-shadow) */
 .at-hero__veil{background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;background-color:transparent!important;opacity:.28!important}
-.ghero::before{background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;background-color:transparent!important;opacity:.25!important}
+.ghero::before{background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;background-color:transparent!important;opacity:.49!important}
 .phero__veil{background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;background-color:transparent!important;opacity:.49!important}
 .phero--center .phero__veil{background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;background-color:transparent!important;opacity:.49!important}
 .ct-hero::after{display:none!important}.ct-hero .ct-hero__veil{background-image:linear-gradient(360deg,rgb(0,0,0) 36%,rgba(255,255,255,0) 50%)!important;background-color:transparent!important;opacity:.43!important}
@@ -1373,8 +1372,13 @@ footer.site-footer img,
 
 /* Home hero bottom gradient a bit lighter */
 .hs-hero::before{background:linear-gradient(360deg,rgba(0,0,0,.28) 30%,rgba(255,255,255,0) 68%)!important}
-/* Gallery tiles / lightbox remain crisp */
-.lb__fig img{filter:brightness(1.1) contrast(1.04) saturate(1.08)!important}
+/* Gallery tiles / lightbox: no brighten — match hotelsheldon.com (filter:none) */
+.gsec .gtile img,
+.gtile img,
+.lb__fig img{
+  filter:none!important;
+  -webkit-filter:none!important;
+}
 </style>
 
 <link rel="stylesheet" href="/css/layout/frontend.css">
