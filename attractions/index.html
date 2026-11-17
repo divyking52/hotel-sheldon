@@ -860,7 +860,8 @@ main .page.page--on:not([hidden]){display:block}
 @media screen and (max-width:1024px){
   .hs-hero{min-height:68vh}
   .at-hero,.phero,.phero--center,.ghero{min-height:50vh}
-  .head__in{max-width:100%;width:100%;padding-inline:20px}
+  .head__in{max-width:100%;width:100%;padding-inline:20px;box-sizing:border-box}
+  .brand{justify-content:flex-start;width:auto;max-width:none}
   .hs-hero__logo{width:66%;height:50px}
   .avail{width:100%;max-width:100%;margin:0 8% -10%;padding:10px}
 }
@@ -1310,6 +1311,8 @@ footer.site-footer img,
 <link rel="stylesheet" href="/css/layout/fade-in-right.css">
 <link rel="stylesheet" href="/css/layout/motion-fx.css">
 <link rel="stylesheet" href="/css/site-footer.css?v=2">
+<link rel="stylesheet" href="/css/vendor/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/css/vendor/photoswipe/default-skin/default-skin.css">
 <style id="hs-local-fonts">
 @font-face{font-family:'Caudex';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/Caudex-Regular.ttf') format('truetype')}
 @font-face{font-family:'Caudex';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/Caudex-Bold.ttf') format('truetype')}
@@ -1324,10 +1327,10 @@ footer.site-footer img,
 <header class="head" id="head">
   <div class="head__in">
     <a class="brand" href="/" aria-label="Hotel Sheldon - home"><img src="/assets/media/2022/07/cropped-sheldon-logo-white.webp" alt="Hotel Sheldon" width="512" height="512" class="brand__img" loading="eager" decoding="async"></a>
-    <nav class="nav" id="nav" aria-label="Primary"><a class="nav__link" href="/" data-route="home">Home</a><a class="nav__link" href="/accommodations" data-route="accommodations">Accommodations</a><a class="nav__link is-active" href="/attractions" data-route="attractions" aria-current="page">Attractions</a><a class="nav__link" href="/blog" data-route="blog">Blog</a><a class="nav__link" href="/gallery" data-route="gallery">Gallery</a><a class="nav__link" href="/contact" data-route="contact">Contact</a><div class="nav__legal"><a href="/privacy-policy">Privacy Policy</a> <a href="/accessibility-statement">Accessibility Statement</a></div></nav>
+    <nav class="nav" id="nav" aria-label="Primary"><a class="nav__link" href="/" data-route="home">Home</a><a class="nav__link" href="/accommodations/" data-route="accommodations">Accommodations</a><a class="nav__link is-active" href="/attractions/" data-route="attractions" aria-current="page">Attractions</a><a class="nav__link" href="/gallery/" data-route="gallery">Gallery</a><a class="nav__link" href="/contact/" data-route="contact">Contact</a><a class="nav__link" href="/blog/" data-route="blog">Blog</a><div class="nav__legal"><a href="/privacy-policy/">Privacy Policy</a> <a href="/accessibility-statement/">Accessibility Statement</a></div></nav>
     <div class="head__actions">
       <a class="btn btn--ghost" href="tel:9549226020">954-922-6020</a>
-      <a class="hs-btn head__book" href="/contact"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.490 64 0 85.490 0 112v352c0 26.510 21.490 48 48 48h352c26.510 0 48-21.490 48-48V112c0-26.510-21.490-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.650L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.970.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.970z"/></svg>Book Now</a>
+      <a class="hs-btn head__book" href="/contact/"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.490 64 0 85.490 0 112v352c0 26.510 21.490 48 48 48h352c26.510 0 48-21.490 48-48V112c0-26.510-21.490-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.650L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.970.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.970z"/></svg>Book Now</a>
       <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav"
               aria-label="Open navigation menu"><span></span><span></span><span></span></button>
     </div>
@@ -1339,7 +1342,7 @@ footer.site-footer img,
 <div class="at-sec" id="local-area">
 <div class="hs-in at-head reveal"><h2 class="hs-h at-title"><span>Attractions Nearby -</span><img class="at-mark" src="/assets/media/2026/02/HotelSheldon_Logotype_White_1x.webp" alt="Hotel Sheldon" width="445" height="28"></h2><p class="hs-p at-intro">Discover the vibrant charm and diverse activities that make Hotel Sheldon the perfect destination for your next getaway. Nestled in the heart of Hollywood, Florida, our hotel offers unparalleled access to an array of exciting attractions and experiences. Whether you’re an adventure seeker, a nature lover, or a culinary enthusiast, you’ll find something to captivate your senses.</p></div>
 <div class="hs-in at-rows"><div class="at-row reveal"><div class="at-media"><img class="hs-frame" src="/assets/media/2024/07/image003.jpg" alt="Hollywood Broadwalk" loading="lazy" decoding="async"></div><div class="at-text"><h2 class="hs-h">Hollywood Broadwalk</h2><p class="hs-p"><a href="https://hotelsheldon.com/boardwalk-hotels-hollywood-beach/" target="_blank" rel="noopener">Just Steps Away From Our Hotel, The Hollywood Broadwalk</a> is a lively 2.5-mile pedestrian promenade that offers a unique blend of beachside relaxation and vibrant entertainment. Whether you’re looking to stroll, rent a bike, or rollerblade, the Broadwalk provides stunning ocean views and a variety of restaurants, cafes, and shops.</p></div></div><div class="at-row at-row--flip reveal"><div class="at-media"><img class="hs-frame" src="/assets/media/2024/07/image004.jpg" alt="Hollywood Beach" loading="lazy" decoding="async"></div><div class="at-text"><h2 class="hs-h">Hollywood Beach</h2><p class="hs-p">Experience the pristine beauty of <a href="https://hotelsheldon.com/hollywood-beach-hotels/" target="_blank" rel="noopener">Hollywood Beach</a>, where guests of Hotel Sheldon enjoy complimentary chairs, an umbrella, and towels. Relax on the soft sands, take a refreshing dip in the ocean, or simply bask in the sun as the gentle sea breeze enhances your perfect beach day.</p></div></div><div class="at-row reveal"><div class="at-media"><img class="hs-frame" src="/assets/media/2024/07/image005.jpg" alt="Anne Kolb Nature Center" loading="lazy" decoding="async"></div><div class="at-text"><h2 class="hs-h"><a class="hs-h-link" href="https://hotelsheldon.com/hotels-near-anne-kolb-nature-centre/" target="_blank" rel="noopener">Anne Kolb Nature Center</a></h2><p class="hs-p">Discover the natural wonders of Hollywood Beach at the Anne Kolb Nature Center. This expansive 1,501-acre coastal mangrove wetland features hiking trails, an observation tower, and guided boat tours. It’s an ideal spot for nature lovers looking to observe local wildlife and enjoy a serene escape.</p></div></div><div class="at-row at-row--flip reveal"><div class="at-media"><img class="hs-frame" src="/assets/media/2024/07/image006.jpg" alt="Hollywood Beach Golf Resort" loading="lazy" decoding="async"></div><div class="at-text"><h2 class="hs-h">Hollywood Beach Golf Resort</h2><p class="hs-p">Golf enthusiasts will appreciate the scenic and challenging 18-hole course at <a href="https://hotelsheldon.com/hotels-near-hollywood-beach-golf-club/" target="_blank" rel="noopener">Hollywood Beach Golf Club</a>. Nestled amidst lush landscapes, the resort provides a relaxing and enjoyable golfing experience for players of all skill levels.</p></div></div><div class="at-row reveal"><div class="at-media"><img class="hs-frame" src="/assets/media/2024/07/image007.jpg" alt="Aventura Mall" loading="lazy" decoding="async"></div><div class="at-text"><h2 class="hs-h">Aventura Mall</h2><p class="hs-p">For those looking to indulge in a shopping spree, <a href="https://hotelsheldon.com/hotels-near-aventura-mall-shopping-hollywood-beach/" target="_blank" rel="noopener">Aventura Mall</a> is just a short drive away. This premier shopping destination offers a wide range of high-end stores, dining options, and entertainment, making it a perfect spot for a day out.</p></div></div><div class="at-row at-row--flip reveal"><div class="at-media"><img class="hs-frame" src="/assets/media/2024/07/image008.jpg" alt="Gulfstream Park Racing and Casino" loading="lazy" decoding="async"></div><div class="at-text"><h2 class="hs-h">Gulfstream Park Racing and Casino</h2><p class="hs-p">Experience the thrill of horse racing and the excitement of casino games at <a href="https://hotelsheldon.com/hotels-near-gulfstream-park-racing-casino-beach-stay/" target="_blank" rel="noopener">Gulfstream Park Racing and Casino</a>. Located nearby, this venue offers a dynamic mix of entertainment, dining, and shopping options, ensuring a fun-filled outing for everyone.</p></div></div></div>
-<div class="at-rooms hs-sec hs-sec--wash"><div class="hs-sec__fade"></div><div class="hs-in reveal"><h2 class="hs-h at-title"><span>Our Rooms -</span><img class="at-mark" src="/assets/media/2026/02/HotelSheldon_Logotype_White_1x.webp" alt="Hotel Sheldon" width="445" height="28"></h2><p class="hs-p at-intro">Immerse yourself in unparalleled comfort at Hotel Sheldon. Our <a href="https://hotelsheldon.com/boutique-hotel-in-hollywood-florida/" target="_blank" rel="noopener">Boutique</a>, beautifully curated rooms are designed to offer a peaceful haven, perfect for unwinding after a day of exploring the vibrant attractions of Hollywood. Effortlessly navigate our rooms section to find the ideal accommodation.</p><a class="hs-btn" href="/accommodations"><svg viewBox="0 0 640 512" aria-hidden="true"><path d="M32 64c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h192c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-32H64v32c0 17.7-14.3 32-32 32S0 465.700 0 448V96c0-17.7 14.3-32 32-32zm72 136a56 56 0 1 1 112 0 56 56 0 1 1-112 0z"/></svg>Check Our Rooms</a></div></div>
+<div class="at-rooms hs-sec hs-sec--wash"><div class="hs-sec__fade"></div><div class="hs-in reveal"><h2 class="hs-h at-title"><span>Our Rooms -</span><img class="at-mark" src="/assets/media/2026/02/HotelSheldon_Logotype_White_1x.webp" alt="Hotel Sheldon" width="445" height="28"></h2><p class="hs-p at-intro">Immerse yourself in unparalleled comfort at Hotel Sheldon. Our <a href="https://hotelsheldon.com/boutique-hotel-in-hollywood-florida/" target="_blank" rel="noopener">Boutique</a>, beautifully curated rooms are designed to offer a peaceful haven, perfect for unwinding after a day of exploring the vibrant attractions of Hollywood. Effortlessly navigate our rooms section to find the ideal accommodation.</p><a class="hs-btn" href="/accommodations/"><svg viewBox="0 0 640 512" aria-hidden="true"><path d="M32 64c17.7 0 32 14.3 32 32v224h224V160c0-17.7 14.3-32 32-32h192c53 0 96 43 96 96v224c0 17.7-14.3 32-32 32s-32-14.3-32-32v-32H64v32c0 17.7-14.3 32-32 32S0 465.700 0 448V96c0-17.7 14.3-32 32-32zm72 136a56 56 0 1 1 112 0 56 56 0 1 1-112 0z"/></svg>Check Our Rooms</a></div></div>
 </div>
 </section>
 </main>
@@ -1544,26 +1547,38 @@ window.__EMAIL__="reservations@hotelsheldon.com";
   }
 
   var lb = $("#lb"), lbImg = $("#lb-img"), lbCap = $("#lb-cap"), queue = [], pos = 0, opener = null;
+  if (lb) lb.hidden = true;
   function openLb(tile, list) {
-    queue = list || visibleTiles();
+    queue = list || (typeof visibleTiles === "function" ? visibleTiles() : [tile]);
     pos = queue.indexOf(tile);
+    if (pos < 0) pos = 0;
     opener = tile;
+    if (window.hsOpenLightbox) {
+      window.hsOpenLightbox(queue, pos);
+      return;
+    }
+    /* fallback if PhotoSwipe scripts not ready */
     paint();
-    lb.hidden = false;
-    document.body.classList.add("locked");
-    $(".lb__x").focus();
+    if (lb) {
+      lb.hidden = false;
+      document.body.classList.add("locked");
+      var x = $(".lb__x");
+      if (x) x.focus();
+    }
   }
   function paint() {
     var t = queue[pos];
-    if (!t) return;
+    if (!t || !lbImg) return;
     var im = t.querySelector("img");
+    if (!im) return;
     lbImg.src = im.dataset.full || im.getAttribute("src");
     lbImg.alt = im.alt;
-    lbCap.textContent = t.dataset.caption + "  ·  " + (pos + 1) + " / " + queue.length;
+    if (lbCap) lbCap.textContent = (t.dataset.caption || "") + "  ·  " + (pos + 1) + " / " + queue.length;
   }
   function move(d) { pos = (pos + d + queue.length) % queue.length; paint(); }
   function closeLb() {
-    if (lb.hidden) return;
+    if (window.hsCloseLightbox) window.hsCloseLightbox();
+    if (!lb || lb.hidden) return;
     lb.hidden = true;
     document.body.classList.remove("locked");
     if (opener) opener.focus();
@@ -1580,7 +1595,7 @@ window.__EMAIL__="reservations@hotelsheldon.com";
       if (a === "close") closeLb(); else move(a === "next" ? 1 : -1);
     });
   });
-  lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+  if (lb) lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
 
   /* ---------------- offer modal ---------------- */
   var offer = $("#offer");
@@ -1925,6 +1940,9 @@ window.__EMAIL__="reservations@hotelsheldon.com";
 })();
 </script>
 
+<script src="/js/vendor/photoswipe/photoswipe.min.js" defer></script>
+<script src="/js/vendor/photoswipe/photoswipe-ui-default.min.js" defer></script>
+<script src="/js/hs-lightbox.js" defer></script>
 <script src="/js/site-footer.js?v=3" defer></script>
 </body>
 </html>

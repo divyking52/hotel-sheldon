@@ -911,7 +911,8 @@ main .page.page--on:not([hidden]){display:block}
 @media screen and (max-width:1024px){
   .hs-hero{min-height:68vh!important}
   .at-hero,.phero,.phero--center,.ghero{min-height:50vh}
-  .head__in{max-width:100%;width:100%;padding-inline:20px}
+  .head__in{max-width:100%;width:100%;padding-inline:20px;box-sizing:border-box}
+  .brand{justify-content:flex-start;width:auto;max-width:none}
   .hs-hero__logo{width:66%;height:50px}
   /* Hsui tablet: side 8%, bottom -10% of parent width */
   .avail-slot{width:auto;max-width:none;align-self:stretch;margin:0 8% -10%}
@@ -1097,6 +1098,8 @@ main .page.page--on:not([hidden]),main .page{display:block}
 <link rel="stylesheet" href="/css/layout/fade-in-right.css">
 <link rel="stylesheet" href="/css/layout/motion-fx.css">
 <link rel="stylesheet" href="/css/site-footer.css?v=2">
+<link rel="stylesheet" href="/css/vendor/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/css/vendor/photoswipe/default-skin/default-skin.css">
 <link rel="stylesheet" href="/css/vendor/flatpickr.min.css">
 <style id="hs-flatpickr-align">
 /* Match hotelsheldon.com Elementor Flatpickr under avail fields */
@@ -1121,10 +1124,10 @@ main .page.page--on:not([hidden]),main .page{display:block}
 <header class="head" id="head">
   <div class="head__in">
     <a class="brand" href="/" aria-label="Hotel Sheldon - home"><img src="https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/ddddce9e-285a-4f6e-965c-d9e9c53f6b30/cropped-sheldon-logo-white.webp" alt="Hotel Sheldon" width="512" height="512" class="brand__img" loading="eager" decoding="async"></a>
-    <nav class="nav" id="nav" aria-label="Primary"><a class="nav__link is-active" href="/" data-route="home" aria-current="page">Home</a><a class="nav__link" href="/accommodations" data-route="accommodations">Accommodations</a><a class="nav__link" href="/attractions" data-route="attractions">Attractions</a><a class="nav__link" href="/blog" data-route="blog">Blog</a><a class="nav__link" href="/gallery" data-route="gallery">Gallery</a><a class="nav__link" href="/contact" data-route="contact">Contact</a><div class="nav__legal"><a href="/privacy-policy">Privacy Policy</a> <a href="/accessibility-statement">Accessibility Statement</a></div></nav>
+    <nav class="nav" id="nav" aria-label="Primary"><a class="nav__link is-active" href="/" data-route="home" aria-current="page">Home</a><a class="nav__link" href="/accommodations/" data-route="accommodations">Accommodations</a><a class="nav__link" href="/attractions/" data-route="attractions">Attractions</a><a class="nav__link" href="/gallery/" data-route="gallery">Gallery</a><a class="nav__link" href="/contact/" data-route="contact">Contact</a><a class="nav__link" href="/blog/" data-route="blog">Blog</a><div class="nav__legal"><a href="/privacy-policy/">Privacy Policy</a> <a href="/accessibility-statement/">Accessibility Statement</a></div></nav>
     <div class="head__actions">
       <a class="btn btn--ghost" href="tel:9549226020">954-922-6020</a>
-      <a class="hs-btn head__book" href="/contact"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.490 64 0 85.490 0 112v352c0 26.510 21.490 48 48 48h352c26.510 0 48-21.490 48-48V112c0-26.510-21.490-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.650L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.970.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.970z"/></svg>Book Now</a>
+      <a class="hs-btn head__book" href="/contact/"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.490 64 0 85.490 0 112v352c0 26.510 21.490 48 48 48h352c26.510 0 48-21.490 48-48V112c0-26.510-21.490-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.650L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.970.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.970z"/></svg>Book Now</a>
       <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav"
               aria-label="Open navigation menu"><span></span><span></span><span></span></button>
     </div>
@@ -1169,7 +1172,7 @@ main .page.page--on:not([hidden]),main .page{display:block}
     <div class="hs-rooms__body">
       <h2 class="hs-h">Hollywood-Themed Rooms with Ocean Views</h2>
       <p class="hs-p">Stay in style at Hotel Sheldon, where each room is thoughtfully designed with Hollywood glamour. Named after entertainment legends like Elvis Presley and Frank Sinatra, our rooms offer a star-studded experience. Enjoy comfortable furnishings, and private balconies in selected rooms overlooking the stunning beach, ensuring a luxurious and memorable stay.</p>
-      <a class="hs-btn" href="/accommodations"><svg viewBox="0 0 640 512" aria-hidden="true"><path d="M176 256c44.110 0 80-35.890 80-80s-35.890-80-80-80-80 35.890-80 80 35.890 80 80 80zm352-128H304c-8.840 0-16 7.160-16 16v144H64V80c0-8.840-7.160-16-16-16H16C7.160 64 0 71.160 0 80v352c0 8.840 7.160 16 16 16h32c8.840 0 16-7.160 16-16v-48h512v48c0 8.840 7.160 16 16 16h32c8.840 0 16-7.160 16-16V240c0-61.860-50.140-112-112-112z"/></svg>Check Our Rooms</a>
+      <a class="hs-btn" href="/accommodations/"><svg viewBox="0 0 640 512" aria-hidden="true"><path d="M176 256c44.110 0 80-35.890 80-80s-35.890-80-80-80-80 35.890-80 80 35.890 80 80 80zm352-128H304c-8.840 0-16 7.160-16 16v144H64V80c0-8.840-7.160-16-16-16H16C7.160 64 0 71.160 0 80v352c0 8.840 7.160 16 16 16h32c8.840 0 16-7.160 16-16v-48h512v48c0 8.840 7.160 16 16 16h32c8.840 0 16-7.160 16-16V240c0-61.860-50.140-112-112-112z"/></svg>Check Our Rooms</a>
     </div>
     <div class="hs-rooms__media">
       <img class="hs-frame hs-rooms__big" src="https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/d02e1092-122a-4b33-859d-5429c16f484d/DSC02714-1024x683.webp" alt="Ocean view from a Hotel Sheldon balcony" width="1024" height="683" loading="lazy" decoding="async">
@@ -1183,7 +1186,7 @@ main .page.page--on:not([hidden]),main .page{display:block}
     <div class="hs-attr__card">
       <h2 class="hs-h">Explore Top Attractions Near Hollywood Beach</h2>
       <p class="hs-p">Whether you are looking for adventure or relaxation, at or near Hotel Sheldon, you can find it all. Stroll or bike along the vibrant Hollywood Boardwalk. Enjoy the pristine beach with complimentary chairs, umbrella, and towels. Explore the natural beauty of Anne Kolb Nature Center or tee off at the scenic Hollywood Beach Golf Resort. Indulge in a shopping spree at Aventura Mall and experience the excitement of Gulfstream Park Racing and Casino. Your perfect getaway awaits at Hotel Sheldon in Hollywood Beach.</p>
-      <a class="hs-btn" href="/attractions"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M507.310 84.690L464 41.370c-6-6-14.140-9.370-22.630-9.370H288V16c0-8.840-7.160-16-16-16h-32c-8.840 0-16 7.160-16 16v16H56c-13.250 0-24 10.750-24 24v80c0 13.250 10.750 24 24 24h385.370c8.490 0 16.620-3.370 22.630-9.370l43.310-43.310c6.250-6.260 6.250-16.380 0-22.630zM224 496c0 8.840 7.160 16 16 16h32c8.840 0 16-7.160 16-16V384h-64v112zm232-272H288v-32h-64v32H70.630c-8.490 0-16.620 3.370-22.630 9.370L4.690 276.690c-6.250 6.250-6.250 16.380 0 22.630L48 342.630c6 6 14.140 9.370 22.630 9.370H456c13.250 0 24-10.750 24-24v-80c0-13.250-10.750-24-24-24z"/></svg>Attractions</a>
+      <a class="hs-btn" href="/attractions/"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M507.310 84.690L464 41.370c-6-6-14.140-9.370-22.630-9.370H288V16c0-8.840-7.160-16-16-16h-32c-8.840 0-16 7.160-16 16v16H56c-13.250 0-24 10.750-24 24v80c0 13.250 10.750 24 24 24h385.370c8.490 0 16.620-3.370 22.630-9.370l43.310-43.310c6.250-6.260 6.250-16.380 0-22.630zM224 496c0 8.840 7.160 16 16 16h32c8.840 0 16-7.160 16-16V384h-64v112zm232-272H288v-32h-64v32H70.630c-8.490 0-16.620 3.370-22.630 9.370L4.690 276.690c-6.250 6.250-6.250 16.380 0 22.630L48 342.630c6 6 14.140 9.370 22.630 9.370H456c13.250 0 24-10.750 24-24v-80c0-13.250-10.750-24-24-24z"/></svg>Attractions</a>
     </div>
   </div>
 </div>
@@ -1193,7 +1196,7 @@ main .page.page--on:not([hidden]),main .page{display:block}
     <img class="hs-gal__mark" src="https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/b62b4d2a-1111-491b-8ad8-bfe8970d2ecb/HotelSheldon_Logotype_White_1x.webp" alt="" width="601" height="36" loading="lazy" decoding="async">
     <h2 class="hs-h">Photo Gallery</h2>
     <p class="hs-p">Explore our gallery to see the beauty and charm of Hotel Sheldon. From stunning views of Hollywood Beach to elegant Hollywood-themed rooms, our images showcase the unique experience awaiting you. Imagine relaxing on a balcony or dining at a beachside bar. Let our photos inspire your next getaway.</p>
-    <a class="hs-btn" href="/gallery"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M464 448H48c-26.510 0-48-21.490-48-48V112c0-26.510 21.490-48 48-48h416c26.510 0 48 21.490 48 48v288c0 26.510-21.490 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"/></svg>Gallery</a>
+    <a class="hs-btn" href="/gallery/"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M464 448H48c-26.510 0-48-21.490-48-48V112c0-26.510 21.490-48 48-48h416c26.510 0 48 21.490 48 48v288c0 26.510-21.490 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"/></svg>Gallery</a>
   </div>
   <div class="hs-car reveal" id="hs-car" role="region" aria-label="Image Carousel">
     <button class="hs-car__nav hs-car__nav--prev" type="button" data-car="prev" aria-label="Previous slide"><svg viewBox="0 0 1000 1000" aria-hidden="true"><path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z"/></svg></button>
@@ -1413,26 +1416,38 @@ window.__EMAIL__="reservations@hotelsheldon.com";
   }
 
   var lb = $("#lb"), lbImg = $("#lb-img"), lbCap = $("#lb-cap"), queue = [], pos = 0, opener = null;
+  if (lb) lb.hidden = true;
   function openLb(tile, list) {
-    queue = list || visibleTiles();
+    queue = list || (typeof visibleTiles === "function" ? visibleTiles() : [tile]);
     pos = queue.indexOf(tile);
+    if (pos < 0) pos = 0;
     opener = tile;
+    if (window.hsOpenLightbox) {
+      window.hsOpenLightbox(queue, pos);
+      return;
+    }
+    /* fallback if PhotoSwipe scripts not ready */
     paint();
-    lb.hidden = false;
-    document.body.classList.add("locked");
-    $(".lb__x").focus();
+    if (lb) {
+      lb.hidden = false;
+      document.body.classList.add("locked");
+      var x = $(".lb__x");
+      if (x) x.focus();
+    }
   }
   function paint() {
     var t = queue[pos];
-    if (!t) return;
+    if (!t || !lbImg) return;
     var im = t.querySelector("img");
+    if (!im) return;
     lbImg.src = im.dataset.full || im.getAttribute("src");
     lbImg.alt = im.alt;
-    lbCap.textContent = t.dataset.caption + "  ·  " + (pos + 1) + " / " + queue.length;
+    if (lbCap) lbCap.textContent = (t.dataset.caption || "") + "  ·  " + (pos + 1) + " / " + queue.length;
   }
   function move(d) { pos = (pos + d + queue.length) % queue.length; paint(); }
   function closeLb() {
-    if (lb.hidden) return;
+    if (window.hsCloseLightbox) window.hsCloseLightbox();
+    if (!lb || lb.hidden) return;
     lb.hidden = true;
     document.body.classList.remove("locked");
     if (opener) opener.focus();
@@ -1449,7 +1464,7 @@ window.__EMAIL__="reservations@hotelsheldon.com";
       if (a === "close") closeLb(); else move(a === "next" ? 1 : -1);
     });
   });
-  lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+  if (lb) lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
 
   /* ---------------- offer modal ---------------- */
   var offer = $("#offer");
@@ -1815,6 +1830,9 @@ window.__EMAIL__="reservations@hotelsheldon.com";
 })();
 </script>
 
+<script src="/js/vendor/photoswipe/photoswipe.min.js" defer></script>
+<script src="/js/vendor/photoswipe/photoswipe-ui-default.min.js" defer></script>
+<script src="/js/hs-lightbox.js" defer></script>
 <script src="/js/site-footer.js?v=3" defer></script>
 </body>
 </html>

@@ -853,7 +853,8 @@ main .page.page--on:not([hidden]){display:block}
 @media screen and (max-width:1024px){
   .hs-hero{min-height:68vh}
   .at-hero,.phero,.phero--center,.ghero{min-height:50vh}
-  .head__in{max-width:100%;width:100%;padding-inline:20px}
+  .head__in{max-width:100%;width:100%;padding-inline:20px;box-sizing:border-box}
+  .brand{justify-content:flex-start;width:auto;max-width:none}
   .hs-hero__logo{width:66%;height:50px}
   .avail{width:100%;max-width:100%;margin:0 8% -10%;padding:10px}
 }
@@ -1081,6 +1082,8 @@ footer.site-footer img,
 <link rel="stylesheet" href="/css/layout/fade-in-right.css">
 <link rel="stylesheet" href="/css/layout/motion-fx.css">
 <link rel="stylesheet" href="/css/site-footer.css?v=2">
+<link rel="stylesheet" href="/css/vendor/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/css/vendor/photoswipe/default-skin/default-skin.css">
 <style id="hs-local-fonts">
 @font-face{font-family:'Caudex';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/Caudex-Regular.ttf') format('truetype')}
 @font-face{font-family:'Caudex';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/Caudex-Bold.ttf') format('truetype')}
@@ -1095,10 +1098,10 @@ footer.site-footer img,
 <header class="head" id="head">
   <div class="head__in">
     <a class="brand" href="/" aria-label="Hotel Sheldon - home"><img src="https://admin.storebox.ai/media/1f0d6d08-8d1b-4c61-95d7-5bd0b8afc8ea/ddddce9e-285a-4f6e-965c-d9e9c53f6b30/cropped-sheldon-logo-white.webp" alt="Hotel Sheldon" width="512" height="512" class="brand__img" loading="eager" decoding="async"></a>
-    <nav class="nav" id="nav" aria-label="Primary"><a class="nav__link" href="/" data-route="home">Home</a><a class="nav__link" href="/accommodations" data-route="accommodations">Accommodations</a><a class="nav__link" href="/attractions" data-route="attractions">Attractions</a><a class="nav__link" href="/blog" data-route="blog">Blog</a><a class="nav__link" href="/gallery" data-route="gallery">Gallery</a><a class="nav__link" href="/contact" data-route="contact">Contact</a><div class="nav__legal"><a href="/privacy-policy">Privacy Policy</a> <a href="/accessibility-statement">Accessibility Statement</a></div></nav>
+    <nav class="nav" id="nav" aria-label="Primary"><a class="nav__link" href="/" data-route="home">Home</a><a class="nav__link" href="/accommodations/" data-route="accommodations">Accommodations</a><a class="nav__link" href="/attractions/" data-route="attractions">Attractions</a><a class="nav__link" href="/gallery/" data-route="gallery">Gallery</a><a class="nav__link" href="/contact/" data-route="contact">Contact</a><a class="nav__link" href="/blog/" data-route="blog">Blog</a><div class="nav__legal"><a href="/privacy-policy/">Privacy Policy</a> <a href="/accessibility-statement/">Accessibility Statement</a></div></nav>
     <div class="head__actions">
       <a class="btn btn--ghost" href="tel:9549226020">954-922-6020</a>
-      <a class="hs-btn head__book" href="/contact"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.490 64 0 85.490 0 112v352c0 26.510 21.490 48 48 48h352c26.510 0 48-21.490 48-48V112c0-26.510-21.490-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.650L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.970.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.970z"/></svg>Book Now</a>
+      <a class="hs-btn head__book" href="/contact/"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.490 64 0 85.490 0 112v352c0 26.510 21.490 48 48 48h352c26.510 0 48-21.490 48-48V112c0-26.510-21.490-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.650L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.970.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.970z"/></svg>Book Now</a>
       <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav"
               aria-label="Open navigation menu"><span></span><span></span><span></span></button>
     </div>
@@ -1308,26 +1311,38 @@ window.__EMAIL__="reservations@hotelsheldon.com";
   }
 
   var lb = $("#lb"), lbImg = $("#lb-img"), lbCap = $("#lb-cap"), queue = [], pos = 0, opener = null;
+  if (lb) lb.hidden = true;
   function openLb(tile, list) {
-    queue = list || visibleTiles();
+    queue = list || (typeof visibleTiles === "function" ? visibleTiles() : [tile]);
     pos = queue.indexOf(tile);
+    if (pos < 0) pos = 0;
     opener = tile;
+    if (window.hsOpenLightbox) {
+      window.hsOpenLightbox(queue, pos);
+      return;
+    }
+    /* fallback if PhotoSwipe scripts not ready */
     paint();
-    lb.hidden = false;
-    document.body.classList.add("locked");
-    $(".lb__x").focus();
+    if (lb) {
+      lb.hidden = false;
+      document.body.classList.add("locked");
+      var x = $(".lb__x");
+      if (x) x.focus();
+    }
   }
   function paint() {
     var t = queue[pos];
-    if (!t) return;
+    if (!t || !lbImg) return;
     var im = t.querySelector("img");
+    if (!im) return;
     lbImg.src = im.dataset.full || im.getAttribute("src");
     lbImg.alt = im.alt;
-    lbCap.textContent = t.dataset.caption + "  ·  " + (pos + 1) + " / " + queue.length;
+    if (lbCap) lbCap.textContent = (t.dataset.caption || "") + "  ·  " + (pos + 1) + " / " + queue.length;
   }
   function move(d) { pos = (pos + d + queue.length) % queue.length; paint(); }
   function closeLb() {
-    if (lb.hidden) return;
+    if (window.hsCloseLightbox) window.hsCloseLightbox();
+    if (!lb || lb.hidden) return;
     lb.hidden = true;
     document.body.classList.remove("locked");
     if (opener) opener.focus();
@@ -1344,7 +1359,7 @@ window.__EMAIL__="reservations@hotelsheldon.com";
       if (a === "close") closeLb(); else move(a === "next" ? 1 : -1);
     });
   });
-  lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+  if (lb) lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
 
   /* ---------------- offer modal ---------------- */
   var offer = $("#offer");
@@ -1689,6 +1704,9 @@ window.__EMAIL__="reservations@hotelsheldon.com";
 })();
 </script>
 
+<script src="/js/vendor/photoswipe/photoswipe.min.js" defer></script>
+<script src="/js/vendor/photoswipe/photoswipe-ui-default.min.js" defer></script>
+<script src="/js/hs-lightbox.js" defer></script>
 <script src="/js/site-footer.js?v=3" defer></script>
 </body>
 </html>
